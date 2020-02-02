@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Home</title>
+  
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.2.13/dist/semantic.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <link rel="stylesheet" href="stylesheets/reset.css">
+  <link rel="stylesheet" href="stylesheets/home-styles.css">
+  <link rel="stylesheet" href="stylesheets/navbar.css">
+  <link rel="stylesheet" href="stylesheets/slider.css">
+  <link rel="stylesheet" href="stylesheets/flaticon.css">
+  <link rel="stylesheet" href="stylesheets/footer.css">
+  <link rel="stylesheet" href="stylesheets/grid.css">
+  <link rel="stylesheet" href="stylesheets/select-style.css">
+  <link rel="stylesheet" href="stylesheets/navbar-options.css">
+  <link rel="stylesheet" href="stylesheets/ads-style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.4.3/css/flag-icon.css" >
+ 
+
+</head>
+
+<body>
+  <nav class="navbar">
+   
+    <input type="checkbox" id="burger-checkbox">
+    <label for="burger-checkbox" class="burger-label"></label>
+    <ul class="navbar-list">
+      <li class="navbar-item"><a href="/"><%= __('Home') %></a></li>
+     
+      
+      <li class="navbar-item"><a href="index.html"><%= __('Close Session') %></a></li>
+      <li class="navbar-item">
+       
+        <% getLocales().forEach( locale => { %>
+       <a href="/change-locale/<%= locale %>"><span class="flag-icon flag-icon-<%= locale %>"></span></a>&nbsp;
+     <% }) %>
+   
+    </li>
+    </ul>
+    <div class="search">
+      <input type="text" class="search-textbox" placeholder=<%=__('Search...') %>>
+    </div>
+    <div class="logout">
+      <button class="logout-button" value="Cerrar Sesión">
+        <a href="index.html"><%= __('Search') %></a>
+    </button>
+    </div>
+    <div class="logout">
+      <button class="logout-button" value="Cerrar Sesión">
+        <a href="/logout"><%= __('Logout') %></a>
+    </button>
+    </div>
+    <div class="language">
+      <% getLocales().forEach( locale => { %>
+        <a href="/change-locale/<%= locale %>"><span class="flag-icon flag-icon-<%= locale %>"></span></a>&nbsp;
+    <% }) %>
+    </div>
+   
+      
+  
+  
+  
+  </nav>
+
+  
+  
+  <!-- <div class="separator"></div> -->
+  <nav class="navbar-options">
+    <label class="custom-select">
+      <select>
+          <option value="" selected="selected" disabled="disabled"><%= __('Buy or Sell') %></option>
+          <option><%= __('Buy') %></option>
+          <option><%= __('Sell') %></option>
+         
+      </select>
+    </label>
+    <label for="input1" class="input-price"><%= __('Price from:') %></label>
+    <input type="text" id="price" class="price" autocomplete="off">
+    <label for="input1" class="input-price"><%= __('Price up:') %></label>
+    <input type="text" id="price" class="price" autocomplete="off">
+    
+    <label class="label-tags">Tags</label>
+
+    <select name="skills" multiple="" class="label ui selection fluid dropdown select-tags">
+      <option value=""><%= __('All') %></option>
+      <option value="1">lifestyle</option>
+      <option value="2">motor</option>
+      <option value="3">mobile</option>
+      <option value="4">work</option>
+
+
+    </select>
+    
+
+  </nav>
+ 
+  <header class="header">
+    
+
+  </header>

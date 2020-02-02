@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DetailAdvert should render 1`] = `
+<Fragment>
+  <Connect(withRouter(Navbar)) />
+  <section
+    className="section detail-container has-spacing section-gray"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="columns"
+      >
+        <div
+          className="column"
+        >
+          <div
+            className="image is-5by4"
+          >
+            <img
+              alt="Placeholder"
+              src="http://localhost:3001/images/prueba.png"
+            />
+          </div>
+        </div>
+        <div
+          className="column"
+        >
+          <div
+            className="card"
+          >
+            <div
+              className="card-content"
+            >
+              <h1
+                className="title"
+              >
+                prueba
+              </h1>
+              <div
+                className="content"
+              >
+                <p
+                  className="is-size-5"
+                >
+                  €
+                  15
+                </p>
+                <h6
+                  className="vc"
+                >
+                  buy
+                </h6>
+                <div
+                  className="has-spacing-bottom"
+                >
+                  <span
+                    className="tag has-small-spacing-top is-medium"
+                    key="work"
+                  >
+                    work
+                  </span>
+                </div>
+                <p />
+                                            
+                <p
+                  className="buttons"
+                >
+                  <a
+                    className="button is-link has-icons-left is-medium"
+                    href="/"
+                  >
+                    <span
+                      className="icon"
+                    >
+                      <FaShoppingCart />
+                    </span>
+                    <span>
+                      Add to basket
+                    </span>
+                  </a>
+                </p>
+                <hr />
+                <div
+                  className="media"
+                >
+                  <div
+                    className="media-left"
+                  >
+                    <span
+                      className="icon"
+                    >
+                      <FaCoins />
+                    </span>
+                  </div>
+                  <div
+                    className="media-content"
+                  >
+                    <p
+                      className="title is-5"
+                    >
+                       Money Back Guarantee
+                    </p>
+                    <p
+                      className="subtitle is-5"
+                    >
+                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
+                    </p>
+                  </div>
+                </div>
+                <hr />
+                <div
+                  className="media"
+                >
+                  <div
+                    className="media-left"
+                  >
+                    <span
+                      className="icon"
+                    >
+                      <FaTruck />
+                    </span>
+                  </div>
+                  <div
+                    className="media-content"
+                  >
+                    <p
+                      className="title is-5"
+                    >
+                       International Delivery
+                    </p>
+                    <p
+                      className="subtitle is-5"
+                    >
+                      Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <Footer />
+</Fragment>
+`;
