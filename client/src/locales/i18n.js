@@ -31,7 +31,8 @@ i18n.use(LanguageDetector).init({
         "Design by": "Design by",
         "Update": "Update",
         "Create": "Create",
-        "SignIn": "SignIn"
+        "SignIn": "SignIn",
+        "SignOut": "SignOut"
       }
     },
     es: {
@@ -61,7 +62,8 @@ i18n.use(LanguageDetector).init({
         "Design by": "Diseñado por",
         "Update": "Actualizar",
         "Create": "Crear",
-        "SignIn": "Iniciar sesión"
+        "SignIn": "Iniciar sesión",
+        "SignOut": "Cerrar Sesión"
       }
     },
   },

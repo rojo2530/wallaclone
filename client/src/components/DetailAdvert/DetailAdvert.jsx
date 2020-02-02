@@ -36,7 +36,7 @@ class DetailAdvert extends React.Component {
             <div className="columns">
               <div className="column">
                 <div className="image is-5by4">
-                  <img src={advert.photo.startsWith('/images') ? `http://localhost:3001${advert.photo}` : `${advert.photo}`} alt="Placeholder" />
+                  <img src={advert.photo.startsWith('/images') ? `http://localhost:7000${advert.photo}` : `${advert.photo}`} alt="Placeholder" />
                 </div>
               </div>
               <div className="column">

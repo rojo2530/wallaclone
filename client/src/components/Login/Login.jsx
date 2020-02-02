@@ -4,7 +4,7 @@ import Input from '../Input';
 import { FaUser, FaTag } from 'react-icons/fa';
 import { notification } from 'antd';
 import api from '../../utils/api';
-import { withRouter } from 'react-router-dom';
+import { withRouter, Link } from 'react-router-dom';
 
 const { login, checkToken } = api(); 
 
@@ -43,7 +43,6 @@ class Login extends React.Component {
       openNotificationWarning('Invalid Form', `The Email or nickname are not correct`);
       return false;
     }
-    console.log(user);
     login(user)
       .then(res => {
         openNotificationSucess('Great!', 'Login is success');
@@ -54,11 +53,7 @@ class Login extends React.Component {
         openNotificationWarning('Invalid credentials', error.response.data.error);
 
       });
-    // this.props.setUser(user);
-    // this.props.history.push('/');
-    // checkToken().then(res => console.log(res))
-    // .catch(err => console.log(err))
-  }
+    }
 
   render() {
     return(
@@ -96,7 +91,7 @@ class Login extends React.Component {
               </div>
               <hr />
               <div className="forgot-password">
-                <p className="has-text-centered">Remember, the fields can not be empty</p>
+                <p className="has-text-centered"><Link to="/forgot-password">Forgot Password?</Link></p>
               </div>
             </div>
         

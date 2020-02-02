@@ -20,7 +20,7 @@ exports[`DetailAdvert should render 1`] = `
           >
             <img
               alt="Placeholder"
-              src="http://localhost:3001/images/prueba.png"
+              src="http://localhost:7000/images/prueba.png"
             />
           </div>
         </div>

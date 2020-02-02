@@ -82,11 +82,11 @@ class Navbar extends React.Component {
               <div className="buttons">
                 <button onClick={this.changeLang} className="is-dark has-text-weight-bold is-normal button"><span className={`flag-icon flag-icon-${languagesFlag[lang]}`}></span></button>
                 { isAuth ? (
-                  <button onClick={this.logout} className="is-dark has-text-weight-bold is-normal button">{t("LogOut")}</button>
+                  <button onClick={this.logout} className="is-dark has-text-weight-bold is-normal button">{t("SignOut")}</button>
 
 
                 ): (
-                  <button onClick={this.login} className="is-dark has-text-weight-bold is-normal button">{t("Login")}</button>
+                  <button onClick={this.login} className="is-dark has-text-weight-bold is-normal button">{t("SignIn")}</button>
 
 
                 )}

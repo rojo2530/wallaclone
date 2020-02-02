@@ -24,8 +24,8 @@ function AdvertsGrid({ adverts, t }) {
           {adverts.map(advert => (
             <div key={advert._id} className="column is-6-tablet is-3-desktop">
               <div className="card has-equal-height">
-						    <div className="image has-spacing image is-3by2">
-							    <img src={advert.photo.startsWith('/images') ? `http://localhost:3001${advert.photo}` : `${advert.photo}`} alt="Placeholder" />
+						    <div className="image has-spacing image is-3by2">hola
+							    <img src={advert.photo.startsWith('/images') ? `http://localhost:7000${advert.photo}` : `${advert.photo}`} alt="Placeholder" />
 						    </div>
 						    <div className="card-content has-equal-height">
 								  <div className="content">
