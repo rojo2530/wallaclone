@@ -48,7 +48,6 @@ function AdvertsGrid({ adverts, t }) {
 						    </div>
 						    <footer className="card-footer">
 							    <Link to={`/advert/detail/${advert._id}`} className="card-footer-item">{t("Detail")}</Link>
-							    <Link to={`/advert/edit/${advert._id}`} className="card-footer-item">{t("Edit")}</Link>
 						    </footer>
 				      </div>
 				    </div>
@@ -64,3 +63,4 @@ AdvertsGrid.propTypes = {
 }
 
 export default withTranslation()(AdvertsGrid);
+

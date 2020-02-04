@@ -22,7 +22,7 @@ export default function App({ store, ...props }) {
 						<Route exact path="/reset/:token" component={ResetPassword} />
 						<Route exact path='/signin' component={SignInAndSignUp} />
 						<Route exact path='/forgot-password' component={ForgotPassword} />
-						<PrivateRoute exact path='/advert/detail/:id' component={DetailAdvert} />
+						<Route exact path='/advert/detail/:id' component={DetailAdvert} />
 						<PrivateRoute key='add-advert' exact path='/advert/create' component={ManageAdvert} />
 						<PrivateRoute key='edit-advert' exact path='/advert/edit/:id' component={ManageAdvert} />
 						<Route component={Error404}/>
