@@ -63,7 +63,26 @@ const anunciosApiController = () => {
       } catch (err) {
           next(err)
       }
+    },
+    /**
+     * GET apiv/anuncios/id
+     */
+    detail: async (req, res, next) => {
+      try {
+        const anuncio = await Anuncio.findById(req.params.id);   
+        if (anuncio) {
+            res.json({
+                success: true, 
+                result: anuncio
+            });
+            return;
+        }   
+        next({ status: 404, error: 'Not Found' });
+      } catch (error) {
+        next(error);
+        return;
     }
+  }
   }
 }
 

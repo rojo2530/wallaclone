@@ -167,8 +167,10 @@ const api = () => {
 				.then(response => response.data.result)
 				.catch(err => {
 					throw err;
-				})
-			} 
+			});
+		}
+		
+		
 	};
 };
 

@@ -8,7 +8,7 @@ const path = require('path');
 const anunciosApiController = require('../../controllers/anunciosApiController');
 
 
-const { index, post } = anunciosApiController();
+const { index, post, detail } = anunciosApiController();
 
 const tags = ["work", "lifestyle", "motor", "mobile"];
 
@@ -23,8 +23,6 @@ const storage = multer.diskStorage({
 })
 
 const upload = multer({ storage: storage });
-
-
 
 router.get('/',
     query('venta').optional().isBoolean().withMessage('must be a boleean value'),
@@ -41,6 +39,10 @@ router.get('/',
 
 router.get('/', index);
 
+router.get('/:id', detail);
+
 router.post('/', upload.single('foto'), post);
+
+
 
 module.exports = router;
