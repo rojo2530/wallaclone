@@ -48,12 +48,13 @@ function getQueryPrice(priceMin, priceMax) {
 
 const api = () => {
 	return {
-		getAdverts: (filter, page = 1) => {
+		getAdverts: (filter, page = 1, oldest=false) => {
 			//No me deja el eslint y lo tengo que poner con let en vez de const
 			// const skip = (page - 1) * LIMIT;
+			const sort = oldest ? 'createdAt' : '-createdAt';
 			let endPoint = buildEndPoint(filter);
 			if (page !== 0) {
-				endPoint = `${endPoint}&start=${page}`;
+				endPoint = `${endPoint}&start=${page}&sort=${sort}`;
 			}
 			return axios.get(endPoint)
 				.then(response => response.data)

@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { FaShoppingCart } from 'react-icons/fa';
 import { withTranslation } from 'react-i18next';
+import Moment from 'react-moment';
 
 const styles = {
   content: {
@@ -36,7 +37,7 @@ function AdvertsGrid({ adverts, t }) {
                       ))}	
 										</div>
 										<p className="buttons">
-                      <a className="button is-link has-icons-left" href="/products/tattoo/">
+                      <a className="button is-link has-icons-left" href="#">
                         <span className="icon">
                           <FaShoppingCart />
                         </span>
@@ -44,6 +45,7 @@ function AdvertsGrid({ adverts, t }) {
                       </a>
 										 </p>
                      <h6 className="vc">{advert.type}</h6>
+                     <Moment format="DD/MM/YYYY hh:mm">{advert.createdAt}</Moment>
                   </div>
 						    </div>
 						    <footer className="card-footer">
