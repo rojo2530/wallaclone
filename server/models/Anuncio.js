@@ -2,8 +2,10 @@
 
 const mongoose = require('mongoose');
 
+const Schema = mongoose.Schema;
+
 //definimos un esquema
-const anuncioSchema = mongoose.Schema(
+const anuncioSchema = new Schema(
     {  
         /**
         * Nombre del articulo en compra/venta
@@ -28,8 +30,12 @@ const anuncioSchema = mongoose.Schema(
         /**
         * Tags del anuncio
         */
-        tags: [{ type: String, enum: ['work', 'lifestyle', 'motor', 'mobile'], index: true},]
-        },
+        tags: [{ type: String, enum: ['work', 'lifestyle', 'motor', 'mobile'], index: true},],
+        /**
+         * Relacion con la tabla de usuario
+         */
+        user: { type: Schema.ObjectId, ref: "Usuario" } 
+    },
     {
         /**
         * Añade las propiedades de created y updated
@@ -43,6 +49,7 @@ anuncioSchema.statics.list = function ({filter, start, limit, sort, fields}) {  
     query.limit(limit);
     query.select(fields);
     query.sort(sort);
+    query.populate("user")
     return query.exec();
 }
 

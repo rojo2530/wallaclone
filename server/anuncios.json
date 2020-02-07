@@ -7,7 +7,8 @@
         "photo":"/images/anuncios/ps4pro.jpg",
         "tags":[  
             "lifestyle"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"XBOX OneX",
@@ -17,7 +18,8 @@
         "photo":"/images/anuncios/xbox.jpg",
         "tags":[  
             "lifestyle"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"Raton Gaming Razer Mamba",
@@ -29,7 +31,8 @@
             "lifestyle",
             "work",
             "mobile"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"Teclado Gaming Razer Chroma",
@@ -41,7 +44,8 @@
             "lifestyle",
             "work",
             "mobile"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"Gráfica Gaming 1080ti",
@@ -52,7 +56,8 @@
         "tags":[  
             "lifestyle",
             "work"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"PC Gaming (i7 6700K)",
@@ -63,7 +68,8 @@
         "tags":[  
             "lifestyle",
             "work"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"Apartamento en Marbella",
@@ -73,7 +79,8 @@
         "photo":"/images/anuncios/apartamento.jpg",
         "tags":[  
             "lifestyle"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"Calleras Crossfit",
@@ -83,7 +90,8 @@
         "photo":"/images/anuncios/calleras.jpg",
         "tags":[  
             "lifestyle"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"Comba de Crossfit",
@@ -93,7 +101,8 @@
         "photo":"/images/anuncios/comba.jpg",
         "tags":[  
             "lifestyle"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {  
         "name":"BMW X6 M",
@@ -104,7 +113,8 @@
         "tags":[  
             "lifestyle",
             "motor"
-        ]
+        ],
+        "user": "5e33f317c9fa891f10307c22"
     },
     {      
         "name": "Bicicleta",      
@@ -112,7 +122,8 @@
         "price": 230,   
         "description": "Una pedazo de bicicleta",   
         "photo": "/images/anuncios/bici.jpg",      
-        "tags": [ "lifestyle", "motor"]    
+        "tags": [ "lifestyle", "motor"],
+        "user": "5e33f317c9fa891f10307c22"    
     },    
     {      
         "name": "iPhone 7",      
@@ -120,7 +131,8 @@
         "price": 350,
         "description": "Un bueno movil pero algo ya antiguo",      
         "photo": "/images/anuncios/iphone7.jpg",      
-        "tags": [ "lifestyle", "mobile"]    
+        "tags": [ "lifestyle", "mobile"],
+        "user": "5e33f317c9fa891f10307c22"    
     },
     {
         "name": "iPhone XR",      
@@ -128,7 +140,8 @@
         "price": 350,      
         "description": "Movil de Apple con precio algo mas barato que el tope de gama",
         "photo": "/images/anuncios/iphonexr.jpg",      
-        "tags": [ "lifestyle", "mobile"]    
+        "tags": [ "lifestyle", "mobile"],
+        "user": "5e33f317c9fa891f10307c22"    
     },  
     {
         "name": "Patinete",      
@@ -136,7 +149,8 @@
         "price": 50,
         "description": "Para ir a todos sitios sin gasar gasolina",      
         "photo": "/images/anuncios/patinete.jpg",      
-        "tags": [ "lifestyle", "motor"]    
+        "tags": [ "lifestyle", "motor"],
+        "user": "5e33f317c9fa891f10307c22"    
 
     },
     {
@@ -145,7 +159,8 @@
         "price": 1300,      
         "description": "La mejor silla para trabajar",
         "photo": "/images/anuncios/aeron.jpg",      
-        "tags": [ "work"]    
+        "tags": [ "work"],
+        "user": "5e33f317c9fa891f10307c22"    
     },
     {
         "name": "Infiniti Q60",      
@@ -153,7 +168,8 @@
         "price": 50800,      
         "description": "Un coche de altos vuelos",
         "photo": "/images/anuncios/infinitiq60.jpg",      
-        "tags": [ "motor"]    
+        "tags": [ "motor"],
+        "user": "5e33f317c9fa891f10307c22"    
     },
     {
         "name": "Honda CBR600",      
@@ -161,7 +177,8 @@
         "price": 8000,      
         "description": "Una gran moto deportiva",
         "photo": "/images/anuncios/hondacbr.jpg",      
-        "tags": [ "motor"]    
+        "tags": [ "motor"],
+        "user": "5e33f317c9fa891f10307c22"    
     },
     {
         "name": "Macbook Pro 13",      
@@ -169,7 +186,8 @@
         "price": 1200,      
         "description": "Portatil muy bueno para desarrollar apps de React",
         "photo": "/images/anuncios/macbook.jpg",      
-        "tags": [ "work", "mobile"]    
+        "tags": [ "work", "mobile"],
+        "user": "5e33f317c9fa891f10307c22"    
     },
     {
         "name": "Gafas de Sol",      
@@ -177,7 +195,8 @@
         "price": 100,      
         "photo": "/images/anuncios/gafas.jpg",
         "description": "Para protegerte de sol cuando el lorenzo aprieta",      
-        "tags": [ "lifestyle"]    
+        "tags": [ "lifestyle"],
+        "user": "5e33f317c9fa891f10307c22"    
     },
     {
         "name": "zapatillas deporte",      
@@ -185,6 +204,7 @@
         "price": 70,      
         "description": "Imprescindibles para ir a correr",
         "photo": "/images/anuncios/zapatillas.jpg",      
-        "tags": [ "lifestyle"]    
+        "tags": [ "lifestyle"],
+        "user": "5e33f317c9fa891f10307c22"    
     }
 ]  

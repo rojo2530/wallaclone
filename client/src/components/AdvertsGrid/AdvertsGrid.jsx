@@ -46,6 +46,7 @@ function AdvertsGrid({ adverts, t }) {
 										 </p>
                      <h6 className="vc">{advert.type}</h6>
                      <Moment format="DD/MM/YYYY hh:mm">{advert.createdAt}</Moment>
+                     <Link to="/">{advert.user.nickname}</Link>
                   </div>
 						    </div>
 						    <footer className="card-footer">
