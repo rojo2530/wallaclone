@@ -21,7 +21,12 @@ function AdvertsGrid({ adverts, t }) {
    <>
      {adverts.length === 0
        ? <p style={styles.content}>No Results Found!!</p>
-       : <div className="columns is-multiline cards-group grid-cards-container">
+       
+       :  
+       <div className="columns is-multiline cards-group grid-cards-container">
+       
+       
+
           {adverts.map(advert => (
             <div key={advert._id} className="column is-6-tablet is-3-desktop">
               <div className="card has-equal-height">
@@ -45,12 +50,12 @@ function AdvertsGrid({ adverts, t }) {
                       </a>
 										 </p>
                      <h6 className="vc">{advert.type}</h6>
-                     <Moment format="DD/MM/YYYY hh:mm">{advert.createdAt}</Moment>
-                     <Link to={`/adverts/${advert.user._id}`}>{advert.user.nickname}</Link>
+                     <Moment format="DD/MM/YYYY HH:mm">{advert.createdAt}</Moment>
+                     <Link to={`/adverts/${advert.user}`}>{advert.user}</Link>
                   </div>
 						    </div>
 						    <footer className="card-footer">
-							    <Link to={`/advert/detail/${advert._id}`} className="card-footer-item">{t("Detail")}</Link>
+							    <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Detail")}</Link>
 						    </footer>
 				      </div>
 				    </div>

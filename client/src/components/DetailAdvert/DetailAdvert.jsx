@@ -14,6 +14,7 @@ class DetailAdvert extends React.Component {
 
   componentDidMount() {
     const { id } = this.props.match.params;
+    console.log(this.props);
     this.props.loadAdvert(id);
   }
 

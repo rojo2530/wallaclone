@@ -10,7 +10,7 @@ const LIMIT = 5;
 function buildEndPoint(filter) {
 	const endPointBase = `${API_URL}/anuncios?limit=${LIMIT}`;
 	let endPoint  = endPointBase;
-	const { name, tag, type, priceMin, priceMax } = filter;
+	const { name, tag, type, priceMin, priceMax, user } = filter;
 
 	if (name) {
 		endPoint = `${endPointBase}&name=${name}`;
@@ -20,10 +20,12 @@ function buildEndPoint(filter) {
 			endPoint = `${endPoint}&tag=${tag}`;
 	}
 
-	if (type && type === 'buy') {
-		endPoint = `${endPoint}&venta=false`;
-	} else if (type && type === 'sell') {
-		endPoint = `${endPoint}&venta=true`;
+	if (type && type !== 'all') {
+		endPoint = `${endPoint}&type=${type}`;
+	}
+
+	if (user) {
+		endPoint = `${endPoint}&user=${user}`;
 	}
 
 	const queryPrice = getQueryPrice(priceMin, priceMax);
@@ -48,10 +50,11 @@ function getQueryPrice(priceMin, priceMax) {
 
 const api = () => {
 	return {
-		getAdverts: (filter, page = 1, oldest=false) => {
+		getAdverts: (filter, page = 1) => {
 			//No me deja el eslint y lo tengo que poner con let en vez de const
 			// const skip = (page - 1) * LIMIT;
-			const sort = oldest ? 'createdAt' : '-createdAt';
+			console.log('Desde api oldest', filter.oldest)
+			const sort = filter.oldest ? 'createdAt' : '-createdAt';
 			let endPoint = buildEndPoint(filter);
 			if (page !== 0) {
 				endPoint = `${endPoint}&start=${page}&sort=${sort}`;

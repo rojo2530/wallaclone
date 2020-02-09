@@ -1,18 +1,17 @@
 import React from 'react';
 import Navbar from '../Navbar/';
+import Adverts from '../Adverts';
 
-class AdvertsByuser extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    console.log('Props by user', this.props);
-    return (
+function AdvertsByuser(props) {
+  return (
+    <>
       <Navbar />
-    )
-  }
-
+      <Adverts nickname={props.match.params.user} />
+    </>
+  )
 }
+    
+
+
 
 export default AdvertsByuser;

@@ -34,7 +34,7 @@ const anuncioSchema = new Schema(
         /**
          * Relacion con la tabla de usuario
          */
-        user: { type: Schema.ObjectId, ref: "Usuario" } 
+        user: { type:String, index: true, required: true } 
     },
     {
         /**
@@ -43,17 +43,14 @@ const anuncioSchema = new Schema(
         timestamps: true,
     }    
 );
-anuncioSchema.statics.list = function ({filter, start, limit, sort, filterUser, fields}) {   //No usar aquí arrow functions, ya que este this es un this sintectico inyectoado por Moongoose
-    const query = Anuncio.find(filter);
-    query.skip((start - 1) * limit) ;   //Pasamos (start -1) * limit, porque skip representa en el número de documentos o registros que nos saltamos y start en la pagina que empezamos, por tanto skip = (start - 1) * limit
-    query.limit(limit);
-    query.select(fields);
-    query.sort(sort);
-    query.populate({
-			path: "user",
-			match: filterUser
-		})
-    return query.exec();
+anuncioSchema.statics.list = function ({filter, start, limit, sort, fields}) {   //No usar aquí arrow functions, ya que este this es un this sintectico inyectoado por Moongoose
+	const query = Anuncio.find(filter);
+	query.skip((start - 1) * limit);   //Pasamos (start -1) * limit, porque skip representa en el número de documentos o registros que nos saltamos y start en la pagina que empezamos, por tanto skip = (start - 1) * limit
+	query.limit(limit);
+	query.select(fields);
+	query.sort(sort);
+	
+	return query.exec();
 }
 
 //Creamos el modelo de Anuncio

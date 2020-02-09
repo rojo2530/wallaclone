@@ -5,6 +5,8 @@ const getPriceFilter = require('../lib/aux');
 const config = require('../lib/config');
 const createTask = require('../rabbitmq/publisher');
 
+
+
 const anunciosApiController = () => {
   return {
     /**
@@ -12,33 +14,25 @@ const anunciosApiController = () => {
      */
     index: async (req, res, next) => {
       try {
-          const url = `http://${req.hostname}:${req.app.settings.port}/images/`;
           const start = typeof req.query.start === 'undefined' ? config.START : parseInt(req.query.start);
           const limit = typeof req.query.limit === 'undefined' ? config.LIMIT : parseInt(req.query.limit);
           const filter = {};
-          const filterUser = {};
-          const { tag, type, name, sort, price, nickname, fields } = req.query;
+          const { tag, type, name, sort, price, user, fields } = req.query;
   
           //Si buscamos por nombre, no va a ser por nombre exacto sino que empiece por ese nombre, omitiendo mayúsculas
           if (name)  filter.name = new RegExp("^" + name, 'i');
           
           if (typeof type !== 'undefined')  filter.type = type;
-          console.log(nickname);
-          if (nickname) {
-            filterUser.nickname = nickname;
-            
-          } 
+          
+          if (user) filter.user = user;
           
           if (tag) filter.tags = tag;
           
           if (typeof price !== 'undefined')  filter.price = getPriceFilter(price);
-          console.log('User: ', filterUser);
 
-          
-          const anuncios = await Anuncio.list({filter: filter, start, limit, sort, filterUser, fields});
-          // anuncios.forEach(anuncio => anuncio.foto = url + anuncio.foto);  //añadimos la url base de la foto
-          const anunciosFilter = anuncios.filter(anuncio => anuncio.user !== null);
-          res.json({sucess: true, count: anunciosFilter.length, results: anunciosFilter});
+          const anuncios = await Anuncio.list({filter: filter, start, limit, sort, fields});
+   
+          res.json({sucess: true, count: anuncios.length, results: anuncios});
           return;
       } catch (err) {
           next(err);
@@ -91,8 +85,10 @@ const anunciosApiController = () => {
         next(error);
         return;
     }
+  },
+  
   }
-  }
+  
 }
 
 

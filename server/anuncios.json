@@ -8,7 +8,7 @@
         "tags":[  
             "lifestyle"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "pikota"
     },
     {  
         "name":"XBOX OneX",
@@ -19,7 +19,7 @@
         "tags":[  
             "lifestyle"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "pikota"
     },
     {  
         "name":"Raton Gaming Razer Mamba",
@@ -32,7 +32,7 @@
             "work",
             "mobile"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "magregor"
     },
     {  
         "name":"Teclado Gaming Razer Chroma",
@@ -45,7 +45,7 @@
             "work",
             "mobile"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "magregor"
     },
     {  
         "name":"Gráfica Gaming 1080ti",
@@ -57,7 +57,7 @@
             "lifestyle",
             "work"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "pikota"
     },
     {  
         "name":"PC Gaming (i7 6700K)",
@@ -69,7 +69,7 @@
             "lifestyle",
             "work"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "magregor"
     },
     {  
         "name":"Apartamento en Marbella",
@@ -80,7 +80,7 @@
         "tags":[  
             "lifestyle"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "magregor"
     },
     {  
         "name":"Calleras Crossfit",
@@ -91,7 +91,7 @@
         "tags":[  
             "lifestyle"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "pikota"
     },
     {  
         "name":"Comba de Crossfit",
@@ -102,7 +102,7 @@
         "tags":[  
             "lifestyle"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "pikota"
     },
     {  
         "name":"BMW X6 M",
@@ -114,7 +114,7 @@
             "lifestyle",
             "motor"
         ],
-        "user": "5e33f317c9fa891f10307c22"
+        "user": "magregor"
     },
     {      
         "name": "Bicicleta",      
@@ -123,7 +123,7 @@
         "description": "Una pedazo de bicicleta",   
         "photo": "/images/anuncios/bici.jpg",      
         "tags": [ "lifestyle", "motor"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "magregor"    
     },    
     {      
         "name": "iPhone 7",      
@@ -132,7 +132,7 @@
         "description": "Un bueno movil pero algo ya antiguo",      
         "photo": "/images/anuncios/iphone7.jpg",      
         "tags": [ "lifestyle", "mobile"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "magregor"    
     },
     {
         "name": "iPhone XR",      
@@ -141,7 +141,7 @@
         "description": "Movil de Apple con precio algo mas barato que el tope de gama",
         "photo": "/images/anuncios/iphonexr.jpg",      
         "tags": [ "lifestyle", "mobile"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "pikota"    
     },  
     {
         "name": "Patinete",      
@@ -150,7 +150,7 @@
         "description": "Para ir a todos sitios sin gasar gasolina",      
         "photo": "/images/anuncios/patinete.jpg",      
         "tags": [ "lifestyle", "motor"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "pikota"    
 
     },
     {
@@ -160,7 +160,7 @@
         "description": "La mejor silla para trabajar",
         "photo": "/images/anuncios/aeron.jpg",      
         "tags": [ "work"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "magregor"    
     },
     {
         "name": "Infiniti Q60",      
@@ -169,7 +169,7 @@
         "description": "Un coche de altos vuelos",
         "photo": "/images/anuncios/infinitiq60.jpg",      
         "tags": [ "motor"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "magregor"    
     },
     {
         "name": "Honda CBR600",      
@@ -178,7 +178,7 @@
         "description": "Una gran moto deportiva",
         "photo": "/images/anuncios/hondacbr.jpg",      
         "tags": [ "motor"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "pikota"    
     },
     {
         "name": "Macbook Pro 13",      
@@ -187,7 +187,7 @@
         "description": "Portatil muy bueno para desarrollar apps de React",
         "photo": "/images/anuncios/macbook.jpg",      
         "tags": [ "work", "mobile"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "pikota"    
     },
     {
         "name": "Gafas de Sol",      
@@ -196,7 +196,7 @@
         "photo": "/images/anuncios/gafas.jpg",
         "description": "Para protegerte de sol cuando el lorenzo aprieta",      
         "tags": [ "lifestyle"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "pikota"    
     },
     {
         "name": "zapatillas deporte",      
@@ -205,6 +205,6 @@
         "description": "Imprescindibles para ir a correr",
         "photo": "/images/anuncios/zapatillas.jpg",      
         "tags": [ "lifestyle"],
-        "user": "5e33f317c9fa891f10307c22"    
+        "user": "magregor"    
     }
 ]  
