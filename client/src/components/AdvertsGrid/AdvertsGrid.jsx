@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { FaShoppingCart } from 'react-icons/fa';
 import { withTranslation } from 'react-i18next';
 import Moment from 'react-moment';
+import { TwitterShareButton, TwitterIcon } from 'react-share';
 
 const styles = {
   content: {
@@ -52,6 +53,8 @@ function AdvertsGrid({ adverts, t }) {
                      <h6 className="vc">{advert.type}</h6>
                      <Moment format="DD/MM/YYYY HH:mm">{advert.createdAt}</Moment>
                      <Link to={`/adverts/${advert.user}`}>{advert.user}</Link>
+                     <TwitterShareButton url={`http://localhost:3000/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} title={advert.name}><TwitterIcon size={32} /></TwitterShareButton>
+                     
                   </div>
 						    </div>
 						    <footer className="card-footer">

@@ -8,6 +8,7 @@ import Footer from '../Footer/';
 import PropTypes from 'prop-types';
 import AdvertsGrid from '../AdvertsGrid/';
 import { Switch } from 'antd';
+import './adverts.css';
 
 export default class Adverts extends React.Component {
   constructor(props) {
@@ -97,7 +98,9 @@ export default class Adverts extends React.Component {
         {isFetching === true 
           ?  <Loading text='Fetching Adverts' />
           :  <>
-          Newest <Switch defaultChecked={!filter.oldest} onChange={this.onChangeSwitch} />
+              <div class="container container-switch">
+                Newest <Switch defaultChecked={!filter.oldest} onChange={this.onChangeSwitch} />
+              </div>
 
               <AdvertsGrid text={this.state.text} 
                 totalPages={totalPages} currentPage={currentPage} 
