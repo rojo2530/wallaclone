@@ -13,6 +13,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     isAuth: isUserAuth(state.user),
+    user: state.user,
   }
 }
 

@@ -86,8 +86,10 @@ export default class Adverts extends React.Component {
 
   render () {
     const { filter, totalPages } = this.state;
-    const { isFetching, error, currentPage } = this.props;
+    const { isFetching, error, currentPage, myadverts } = this.props;
    
+
+
     if (error) {
       return <CaptureError message="Error fecthing Adverts" error={error.message} />
     }
@@ -98,13 +100,16 @@ export default class Adverts extends React.Component {
         {isFetching === true 
           ?  <Loading text='Fetching Adverts' />
           :  <>
-              <div class="container container-switch">
+              <div className="container container-switch">
                 Newest <Switch defaultChecked={!filter.oldest} onChange={this.onChangeSwitch} />
               </div>
 
               <AdvertsGrid text={this.state.text} 
-                totalPages={totalPages} currentPage={currentPage} 
-                onChangePage={this.handlerPage}/>
+                totalPages={totalPages} 
+                currentPage={currentPage} 
+                onChangePage={this.handlerPage} 
+                myadverts={myadverts}
+                />
               <div className="container-pagination" style={{marginTop: '100px'}}>
                 <Pagination 
                   currentPage={currentPage}

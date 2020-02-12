@@ -12,6 +12,7 @@ import SignInAndSignUp from './components/SignInAndSignUp';
 import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import AdvertsByUser from './components/AdvertsByUser';
+import MyAdverts from './components/MyAdverts';
 
 export default function App({ store, ...props }) {
 	return (
@@ -27,6 +28,7 @@ export default function App({ store, ...props }) {
 						<Route exact path='/adverts/:user' component={AdvertsByUser} />
 						<PrivateRoute key='add-advert' exact path='/advert/create' component={ManageAdvert} />
 						<PrivateRoute key='edit-advert' exact path='/advert/edit/:id' component={ManageAdvert} />
+						<PrivateRoute key='myadverts' exact path='/private/:user/myadverts' component={MyAdverts} />
 						<Route component={Error404}/>
 					</Switch>
 				</Router>

@@ -17,7 +17,7 @@ const styles = {
   }
 }
 
-function AdvertsGrid({ adverts, t }) {
+function AdvertsGrid({ adverts, t, myadverts }) {
   return (
    <>
      {adverts.length === 0
@@ -58,7 +58,13 @@ function AdvertsGrid({ adverts, t }) {
                   </div>
 						    </div>
 						    <footer className="card-footer">
-							    <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Detail")}</Link>
+                  <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Detail")}</Link>
+                  { myadverts &&
+                    <> 
+                      <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Edit")}</Link>
+                      <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Delete")}</Link>
+                    </>  
+                  }  
 						    </footer>
 				      </div>
 				    </div>
