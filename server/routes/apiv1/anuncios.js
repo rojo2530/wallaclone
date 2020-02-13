@@ -6,19 +6,21 @@ const multer = require('multer');
 const { query,validationResult} = require('express-validator');
 const path = require('path');
 const anunciosApiController = require('../../controllers/anunciosApiController');
+const crypto = require('crypto');
 
 
-const { index, post, detail } = anunciosApiController();
+
+const { index, post, detail, uploadFile } = anunciosApiController();
 
 const tags = ["work", "lifestyle", "motor", "mobile"];
 
 //SET STORAGE
 const storage = multer.diskStorage({
 	destination: function (req, file, cb) {
-			cb(null, path.join(__dirname, '..', '..', 'public', 'images'));
+			cb(null, path.join(__dirname, '..', '..', 'public', 'images', 'anuncios'));
 	},
 	filename: function (req, file, cb) {
-			cb(null, file.originalname);
+			cb(null, crypto.randomBytes(10).toString('hex') + file.originalname);
 	}
 })
 
@@ -41,7 +43,10 @@ router.get('/', index);
 
 router.get('/:id', detail);
 
-router.post('/', upload.single('foto'), post);
+router.post('/uploadfile', upload.single('photo'), uploadFile)
+
+router.post('/', upload.single('photo'), post);
+
 
 
 

@@ -44,8 +44,10 @@ const anunciosApiController = () => {
      */
     post: async (req, res, next) => {
       try {
+
           const data = req.body;
           const file = req.file;
+          console.log(data, file);
           if (!file) {
             const error = new Error('Please upload a file')
             error.status = 400
@@ -53,20 +55,49 @@ const anunciosApiController = () => {
           }
           //Para evitar tags duplicados
           data.tags = [...new Set(data.tags)];
-          data.foto = req.file.originalname;
+          data.photo = req.file.originalname;
           const anuncio = new Anuncio(data);
           const anuncioSaved = await anuncio.save();
           //mandar a rabbitmq
           res.json({ sucess: true, result: anuncioSaved });
           createTask({
-            texto: 'Create thumbnail for  ' + data.foto + ' ' + Date.now(),
-            imageName: data.foto,
+            texto: 'Create thumbnail for  ' + data.photo + ' ' + Date.now(),
+            imageName: data.photo,
             quality: 80
           }).catch(err => console.log(err));
       } catch (err) {
-          next(err)
+          console.log('Error' , err);
+          next(err);
       }
+
     },
+    /**
+     * POST /apiv1/anuncios/uploadfile
+     */
+
+     uploadFile: async (req, res, next) => {
+      try {
+        const file = req.file;
+        if (!file) {
+          const error = new Error('Please upload a file')
+          error.status = 400
+          return next(error)
+        }
+        console.log(req.file);
+        res.json({ sucess: true, result: '/images/anuncios/' + file.filename });
+        // createTask({
+        //   texto: 'Create thumbnail for  ' + req.file.originalname + ' ' + Date.now(),
+        //   imageName: req.file.originalname,
+        //   quality: 80
+        // }).catch(err => console.log(err));
+
+
+      } catch (err) {
+        console.log('Error' , err);
+        next(err);
+      } 
+     },
+
     /**
      * GET apiv/anuncios/id
      */

@@ -99,6 +99,7 @@ class ManageAdvert extends React.Component {
   }
 
   render() {
+    console.log(this.state);
     const { advert, edit } = this.state;
     const { isFetching, error, t } = this.props;
     
@@ -152,7 +153,7 @@ class ManageAdvert extends React.Component {
                     <div className="field">
                       <label className="label">{t("Photo")}</label>
                       <div className="control has-icons-left">
-                        <input name="photo" className="input" type="text" value={advert.photo} onChange={this.onChangeField} placeholder="Photo..." />
+                        <input name="photo" className="input" type="file" value={advert.photo} onChange={this.onChangeField} placeholder="Photo..." />
                         <span className="icon is-small is-left"><FaImage /></span>
                       </div>
                       <p className="help">The description is invalid, is too short</p>
