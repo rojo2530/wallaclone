@@ -88,7 +88,7 @@ class ManageAdvert extends React.Component {
   onChangeFile(e) {
     this.setState({ imageFile: e.target.files[0] });
   }
-
+  
   onUploadFile() {
     const formData = new FormData();
     formData.append('photo', this.state.imageFile);

@@ -31,7 +31,7 @@ export default function App({ store, ...props }) {
 						<Route exact path='/adverts/:user' component={AdvertsByUser} />
 						<PrivateRoute key='add-advert' exact path='/advert/create' component={ManageAdvert} />
 						<PrivateRoute key='edit-advert' exact path='/advert/edit/:id' component={ManageAdvert} />
-						<PrivateRoute key='myadverts' exact path='/private/:user/myadverts' component={MyAdverts} />
+						<PrivateRoute key='myadverts' exact path='/private/myadverts' component={MyAdverts} />
 						<Route component={Error404}/>
 					</Switch>
 				</Router>

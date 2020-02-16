@@ -3,7 +3,6 @@ import Navbar from '../Navbar/';
 import Adverts from '../Adverts';
 
 function MyAdverts(props) {
-  console.log('Myadverts' , props.match.params.user);
   return (
     <>
       <Navbar />

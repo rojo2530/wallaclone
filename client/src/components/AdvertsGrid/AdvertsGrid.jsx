@@ -5,6 +5,7 @@ import { FaShoppingCart } from 'react-icons/fa';
 import { withTranslation } from 'react-i18next';
 import Moment from 'react-moment';
 import { TwitterShareButton, TwitterIcon } from 'react-share';
+import Confirm from '../Confirm';
 
 const styles = {
   content: {
@@ -17,7 +18,7 @@ const styles = {
   }
 }
 
-function AdvertsGrid({ adverts, t, myadverts }) {
+function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
   return (
    <>
      {adverts.length === 0
@@ -62,7 +63,7 @@ function AdvertsGrid({ adverts, t, myadverts }) {
                   { myadverts &&
                     <> 
                       <Link to={`/advert/edit/${advert._id}`} className="card-footer-item">{t("Edit")}</Link>
-                      <Link to={`/advert/delete/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Delete")}</Link>
+                      <Confirm id={advert._id} />
                     </>  
                   }  
 						    </footer>

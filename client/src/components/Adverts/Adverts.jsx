@@ -29,6 +29,7 @@ export default class Adverts extends React.Component {
     this.handlerSubmit = this.handlerSubmit.bind(this);
     this.handlerPage = this.handlerPage.bind(this);
     this.onChangeSwitch = this.onChangeSwitch.bind(this);
+    this.onDelete = this.onDelete.bind(this);
   }
 
   handlerSubmit(event) {
@@ -37,6 +38,10 @@ export default class Adverts extends React.Component {
     this.props.changePage(1);
     this.props.setFilter(this.state.filter);
     this.props.loadAdverts();
+  }
+
+  onDelete(id) {
+    alert(id);
   }
 
   handlerPage(currentPage) {
@@ -85,7 +90,7 @@ export default class Adverts extends React.Component {
   }
 
   render () {
-    const { filter, totalPages } = this.state;
+    const { filter, totalPages, onDelete } = this.state;
     const { isFetching, error, currentPage, myadverts } = this.props;
    
 
@@ -109,6 +114,7 @@ export default class Adverts extends React.Component {
                 currentPage={currentPage} 
                 onChangePage={this.handlerPage} 
                 myadverts={myadverts}
+                onDelete={onDelete}
                 />
               <div className="container-pagination" style={{marginTop: '100px'}}>
                 <Pagination 
