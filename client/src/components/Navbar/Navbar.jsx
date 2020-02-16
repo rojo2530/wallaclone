@@ -151,7 +151,7 @@ class Navbar extends React.Component {
                     </div>
                     <Link
                       class="navbar-item is-active"
-                      to={`/private/${user.nickname}/myadverts`}
+                      to={`/private/myadverts`}
                     >
                       Mis anuncios
                     </Link>

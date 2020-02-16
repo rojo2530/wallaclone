@@ -2,11 +2,11 @@ import React from 'react';
 import Navbar from '../Navbar/';
 import Adverts from '../Adverts';
 
-function MyAdverts(props) {
+function MyAdverts({ user }) {
   return (
     <>
       <Navbar />
-      <Adverts nickname={props.match.params.user} myadverts={true} />
+      <Adverts nickname={user.nickname} myadverts={true} />
     </>
   )
 }
