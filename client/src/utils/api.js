@@ -172,9 +172,20 @@ const api = () => {
 				.catch(err => {
 					throw err;
 			});
+		},
+		uploadFile: data => {
+			const endPoint = `${API_URL}/anuncios/uploadfile`;
+			const config = {
+				headers: {
+						'content-type': 'multipart/form-data'
+				}
+			}
+			return axios.post(endPoint, data, config)
+				.then(response => response.data.result)
+				.catch(err => {
+					throw err;
+			});
 		}
-		
-		
 	};
 };
 

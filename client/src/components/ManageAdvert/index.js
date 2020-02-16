@@ -7,6 +7,7 @@ function mapStateToProps(state) {
     advert: state.currentAdvert,
     isFetching: state.ui.isFetching,
     error: state.ui.error,
+    user: state.user,
   }
 }
 

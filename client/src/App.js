@@ -13,6 +13,7 @@ import ForgotPassword from './components/ForgotPassword';
 import ResetPassword from './components/ResetPassword';
 import AdvertsByUser from './components/AdvertsByUser';
 import MyAdverts from './components/MyAdverts';
+import FileUpload from './components/FileUpload';
 
 export default function App({ store, ...props }) {
 	return (
@@ -21,6 +22,8 @@ export default function App({ store, ...props }) {
 				<Router>
 					<Switch>
 						<Route exact path='/' component={Adverts} />
+						<Route exact path='/prueba' component={FileUpload} />
+
 						<Route exact path="/reset/:token" component={ResetPassword} />
 						<Route exact path='/signin' component={SignInAndSignUp} />
 						<Route exact path='/forgot-password' component={ForgotPassword} />

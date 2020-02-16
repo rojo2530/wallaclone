@@ -3,19 +3,29 @@ import SelectMultiple from '../SelectMultiple/';
 import Navbar from '../Navbar/';
 import Footer from '../Footer';
 import { notification } from 'antd';
-import { FaAdversal, FaUser, FaRegFileWord, FaEuroSign, FaImage } from 'react-icons/fa';
+import {
+  FaAdversal,
+  FaUser,
+  FaRegFileWord,
+  FaEuroSign,
+  FaImage,
+} from 'react-icons/fa';
 import CaptureError from '../CaptureError';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
+import FileUpload from '../FileUpload';
+import api from '../../utils/api';
+
+const { uploadFile } = api();
 
 const openNotification = (message, description) => {
   notification.open({
     message,
     description,
     type: 'success',
-    style: { backgroundColor: 'green' }
+    style: { backgroundColor: 'green' },
   });
-}
+};
 
 class ManageAdvert extends React.Component {
   constructor(props) {
@@ -27,35 +37,72 @@ class ManageAdvert extends React.Component {
         tags: [],
         price: '',
         type: 'sell',
-        photo: ''
+        photo: '',
       },
       edit: false,
+      imageFile: null,
     };
     this.onChangeField = this.onChangeField.bind(this);
+    this.onChangeFile = this.onChangeFile.bind(this);
+    this.onUploadFile = this.onUploadFile.bind(this);
     this.onChangeTag = this.onChangeTag.bind(this);
     this.isInvalidForm = this.isInvalidForm.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
- async onSubmit(event) {
+  async onSubmit(event) {
     event.preventDefault();
-    if (this.state.edit) {
-      await this.props.editAdvert(this.state.advert._id,this.state.advert);
-      openNotification('Advert update with sucess', `The advert was updated correctly`);
-      return;
+    console.log(this.isInvalidForm());
+
+    if (!this.isInvalidForm()) {
+      if (this.state.edit) {
+        await this.props.editAdvert(this.state.advert._id, this.state.advert);
+        openNotification(
+          'Advert update with sucess',
+          `The advert was updated correctly`,
+        );
+        return;
+      }
+      await this.props.newAdvert({
+        ...this.state.advert,
+        user: this.props.user.nickname,
+      });
+      this.setState({
+        //Una vez creamos el anuncio dejamos el formulario en blanco
+        advert: {
+          name: '',
+          description: '',
+          tags: [],
+          price: '',
+          type: 'sell',
+          photo: '',
+        },
+      });
+      openNotification(
+        'Advert created with success',
+        `The advert was created correctly at`,
+      );
     }
-    await this.props.newAdvert(this.state.advert);
-    this.setState({   //Una vez creamos el anuncio dejamos el formulario en blanco
-      advert: {
-        name: '',
-        description: '',
-        tags: [],
-        price: '',
-        type: 'sell',
-        photo: ''
-      },
-    });
-    openNotification('Advert created with success', `The advert was created correctly at`);
+  }
+
+  onChangeFile(e) {
+    this.setState({ imageFile: e.target.files[0] });
+  }
+
+  onUploadFile() {
+    const formData = new FormData();
+    formData.append('photo', this.state.imageFile);
+
+    uploadFile(formData)
+      .then(imagePath =>
+        this.setState({
+          advert: {
+            ...this.state.advert,
+            photo: imagePath,
+          },
+        }),
+      )
+      .catch(err => console.log(err));
   }
 
   async componentDidMount() {
@@ -64,45 +111,50 @@ class ManageAdvert extends React.Component {
       await this.props.loadAdvert(id);
       this.setState({
         advert: this.props.advert,
-        edit: true
-      })
+        edit: true,
+      });
     }
   }
 
   onChangeField(event) {
     const { name, value } = event.target;
-    this.setState({
-      advert: {
-        ...this.state.advert,
-        [name]: value
-      }
-    });
+    if (name !== 'photo') {
+      this.setState({
+        advert: {
+          ...this.state.advert,
+          [name]: value,
+        },
+      });
+    }
   }
 
   onChangeTag(value) {
     this.setState({
       advert: {
         ...this.state.advert,
-        tags: [...value]
-      }
-    })
+        tags: [...value],
+      },
+    });
   }
 
   isInvalidForm() {
     const { advert } = this.state;
-    return advert.name.trim().length <= 3 ||
+    return (
+      advert.name.trim().length <= 3 ||
       advert.description.trim().length <= 3 ||
       advert.price < 1 ||
       advert.photo.trim().length <= 3 ||
       advert.type.trim().length < 3 ||
       advert.tags.length < 1
+    );
   }
 
   render() {
     console.log(this.state);
     const { advert, edit } = this.state;
-    const { isFetching, error, t } = this.props;
-    
+    const { isFetching, error, t, user } = this.props;
+    console.log(this.state);
+
     if (isFetching) {
       return null;
     }
@@ -110,7 +162,9 @@ class ManageAdvert extends React.Component {
       return null;
     }
     if (error) {
-      return <CaptureError message="Error fecthing Adverts" error={error.message} />
+      return (
+        <CaptureError message="Error fecthing Adverts" error={error.message} />
+      );
     }
     return (
       <>
@@ -119,61 +173,116 @@ class ManageAdvert extends React.Component {
           <div className="hero-body">
             <div className="container">
               <div className="column is-4 is-offset-4 box">
-                <h1 className="avatar has-text-centered section"><FaAdversal size={52} /></h1>
+                <h1 className="avatar has-text-centered section">
+                  <FaAdversal size={52} />
+                </h1>
                 <div className="login-form">
                   <form onSubmit={this.onSubmit}>
                     <div className="field">
-                      <label className="label">{t("Name")}</label>
+                      <label className="label">{t('Name')}</label>
                       <div className="control has-icons-left">
-                        <input name="name" className="input" value={advert.name} onChange={this.onChangeField} type="text" placeholder="Name..." />
-                        <span className="icon is-small is-left"><FaUser /></span>
+                        <input
+                          name="name"
+                          className="input"
+                          value={advert.name}
+                          onChange={this.onChangeField}
+                          type="text"
+                          placeholder="Name..."
+                        />
+                        <span className="icon is-small is-left">
+                          <FaUser />
+                        </span>
                       </div>
                       <p className="help">The name is invalid, is too short</p>
                     </div>
                     <div className="field">
-                      <label className="label">{t("Description")}</label>
+                      <label className="label">{t('Description')}</label>
                       <div className="control has-icons-left">
-                        <input name="description" className="input" type="text" value={advert.description} onChange={this.onChangeField} placeholder="Description  .." />
-                        <span className="icon is-small is-left"><FaRegFileWord /></span>
+                        <input
+                          name="description"
+                          className="input"
+                          type="text"
+                          value={advert.description}
+                          onChange={this.onChangeField}
+                          placeholder="Description  .."
+                        />
+                        <span className="icon is-small is-left">
+                          <FaRegFileWord />
+                        </span>
                       </div>
-                      <p className="help">The description is invalid, is too short</p>
-
+                      <p className="help">
+                        The description is invalid, is too short
+                      </p>
                     </div>
 
                     <div className="field">
-                      <label className="label">{t("Price")}</label>
+                      <label className="label">{t('Price')}</label>
                       <div className="control has-icons-left">
-                        <input name="price" className="input" type="number" value={advert.price} onChange={this.onChangeField} placeholder="Price.." />
-                        <span className="icon is-small is-left"><FaEuroSign /></span>
+                        <input
+                          name="price"
+                          className="input"
+                          type="number"
+                          value={advert.price}
+                          onChange={this.onChangeField}
+                          placeholder="Price.."
+                        />
+                        <span className="icon is-small is-left">
+                          <FaEuroSign />
+                        </span>
                       </div>
                       <p className="help">The price is invalid, is too short</p>
-
                     </div>
 
                     <div className="field">
-                      <label className="label">{t("Photo")}</label>
+                      <label className="label">{t('Photo')}</label>
                       <div className="control has-icons-left">
-                        <input name="photo" className="input" type="file" value={advert.photo} onChange={this.onChangeField} placeholder="Photo..." />
-                        <span className="icon is-small is-left"><FaImage /></span>
+                        <input
+                          name="photo"
+                          disabled
+                          className="input"
+                          type="text"
+                          value={advert.photo}
+                          onChange={this.onChangeField}
+                          placeholder="Photo..."
+                        />
+                        <span className="icon is-small is-left">
+                          <FaImage />
+                        </span>
                       </div>
-                      <p className="help">The description is invalid, is too short</p>
-
+                      <p className="help">
+                        The description is invalid, is too short
+                      </p>
                     </div>
 
                     <div className="field">
-                      <label className="label">{t("Tags")}</label>
+                      <input type="file" onChange={this.onChangeFile} accept="image/*" />
+                      <button type="button" onClick={this.onUploadFile}>
+                        Upload
+                      </button>
+                    </div>
+
+                    <div className="field">
+                      <label className="label">{t('Tags')}</label>
                       <div className="control has-icons-left">
-                        <SelectMultiple name='tags' value={advert.tags} onChange={this.onChangeTag} />
+                        <SelectMultiple
+                          name="tags"
+                          value={advert.tags}
+                          onChange={this.onChangeTag}
+                        />
                       </div>
                     </div>
 
                     <div className="field">
-                      <label className="label">{t("Type")}</label>
+                      <label className="label">{t('Type')}</label>
                       <div className="control has-icons-left">
                         <div className="select is-fullwidth">
-                          <select name='type' value={advert.type} onChange={this.onChangeField}>
-                            <option value='buy'>{t("buy")}</option>
-                            <option value='sell'>{t("sell")}</option>
+                          <select
+                            name="type"
+                            value={advert.type}
+                            onChange={this.onChangeField}
+                          >
+                            <option value="buy">{t('buy')}</option>
+                            <option value="sell">{t('sell')}</option>
                           </select>
                         </div>
                       </div>
@@ -181,14 +290,21 @@ class ManageAdvert extends React.Component {
 
                     <div className="field">
                       <p className="control">
-                        <button className="button is-dark is-medium is-fullwidth is-disabled" disabled={this.isInvalidForm()}>{edit === true ? t("Update") : t("Create")}</button>
+                        <button
+                          className="button is-dark is-medium is-fullwidth is-disabled"
+                          disabled={this.isInvalidForm()}
+                        >
+                          {edit === true ? t('Update') : t('Create')}
+                        </button>
                       </p>
                     </div>
                   </form>
                 </div>
                 <hr />
                 <div className="forgot-password">
-                  <p className="has-text-centered">Remember, the fields can not be empty</p>
+                  <p className="has-text-centered">
+                    Remember, the fields can not be empty
+                  </p>
                 </div>
               </div>
             </div>
@@ -196,7 +312,7 @@ class ManageAdvert extends React.Component {
         </section>
         <Footer />
       </>
-    )
+    );
   }
 }
 
@@ -207,6 +323,6 @@ ManageAdvert.propTypes = {
   loadAdvert: PropTypes.func.isRequired,
   newAdvert: PropTypes.func.isRequired,
   editAdvert: PropTypes.func.isRequired,
-}
+};
 
 export default withTranslation()(ManageAdvert);
