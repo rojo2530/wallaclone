@@ -10,7 +10,7 @@ const crypto = require('crypto');
 
 
 
-const { index, post, detail, uploadFile, update } = anunciosApiController();
+const { index, post, detail, uploadFile, deleteOne, update } = anunciosApiController();
 
 const tags = ["work", "lifestyle", "motor", "mobile"];
 
@@ -45,9 +45,11 @@ router.get('/:id', detail);
 
 router.put('/:id', update);
 
+router.delete('/:id', deleteOne);
+
 router.post('/uploadfile', upload.single('photo'), uploadFile)
 
-router.post('/', upload.single('photo'), post);
+router.post('/', post);
 
 
 

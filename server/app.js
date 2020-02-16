@@ -61,7 +61,6 @@ app.use('/apiv1/tags', require('./routes/apiv1/tags'));
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 //Cualquier llamada a la api, excepto el login tiene que tener un token valido
 app.use('/apiv1/*', require('./lib/jwtAuth'));
-app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 
 /**
  * Inicializamos y cargamos la sesión del usuario que hacce la petición

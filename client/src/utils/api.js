@@ -185,6 +185,14 @@ const api = () => {
 				.catch(err => {
 					throw err;
 			});
+		},
+		deleteOne: id => {
+			const endPoint = `${API_URL}/anuncios/${id}`;
+			return axios.delete(endPoint)
+				.then(response => response.data.result)
+				.catch(err => {
+					throw err;
+				})
 		}
 	};
 };

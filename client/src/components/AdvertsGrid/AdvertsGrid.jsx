@@ -61,8 +61,8 @@ function AdvertsGrid({ adverts, t, myadverts }) {
                   <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Detail")}</Link>
                   { myadverts &&
                     <> 
-                      <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Edit")}</Link>
-                      <Link to={`/advert/detail/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Delete")}</Link>
+                      <Link to={`/advert/edit/${advert._id}`} className="card-footer-item">{t("Edit")}</Link>
+                      <Link to={`/advert/delete/${advert.name.replace(/\s+/g, '-')}/${advert._id}`} className="card-footer-item">{t("Delete")}</Link>
                     </>  
                   }  
 						    </footer>

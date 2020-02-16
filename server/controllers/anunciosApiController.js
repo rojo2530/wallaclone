@@ -139,6 +139,19 @@ const anunciosApiController = () => {
         return;
       }
     },
+    /**
+     * GET /apiv1/anuncios/delete/id
+     */
+    deleteOne: async (req, res, next) => {
+      try {
+        const result = await Anuncio.findByIdAndRemove(req.params.id);
+        res.json({ sucess: true, result });
+      } catch (error) {
+        next(error);
+        return;
+      }
+
+    }
   };
 };
 
