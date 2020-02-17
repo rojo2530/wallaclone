@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 import api from '../../utils/api';
+import './navbar.css';
 
 const { logout } = api();
 
@@ -93,8 +94,8 @@ class Navbar extends React.Component {
             <div className="navbar-start">
               {isAuth && (
                 <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link  is-active" href="#">
-                    Privat
+                  <a class="navbar-link has-text-grey has-text-weight-bold">
+                    <strong class="has-text-grey">{t('Private')}</strong>
                   </a>
                   <div class="navbar-dropdown ">
                     <hr class="navbar-divider" />
@@ -105,47 +106,12 @@ class Navbar extends React.Component {
                         </p>
                       </div>
                     </div>
-                    <a
-                      class="navbar-item "
-                      href="/documentation/overview/start/"
-                    >
-                      Baja de Usuario
-                    </a>
-                    <a
-                      class="navbar-item "
-                      href="http://bulma.io/documentation/modifiers/syntax/"
-                    >
-                      Actualización de Usuario
-                    </a>
-                    <a
-                      class="navbar-item "
-                      href="http://bulma.io/documentation/columns/basics/"
-                    >
-                      Columns
-                    </a>
-                    <a
-                      class="navbar-item "
-                      href="http://bulma.io/documentation/layout/container/"
-                    >
-                      Layout
-                    </a>
-                    <a
-                      class="navbar-item "
-                      href="http://bulma.io/documentation/form/general/"
-                    >
-                      Form
-                    </a>
-                    <a
-                      class="navbar-item "
-                      href="http://bulma.io/documentation/elements/box/"
-                    >
-                      Elements
-                    </a>
+
                     <hr class="navbar-divider" />
                     <div class="navbar-item">
                       <div>
                         <p class="is-size-6-desktop">
-                          <strong class="has-text-info">Anuncios</strong>
+                          <strong class="has-text-info">{t('Adverts')}</strong>
                         </p>
                       </div>
                     </div>
@@ -153,27 +119,22 @@ class Navbar extends React.Component {
                       class="navbar-item is-active"
                       to={`/private/myadverts`}
                     >
-                      Mis anuncios
+                    {t('My Adverts')}
                     </Link>
                     <Link class="navbar-item is-active" to="/advert/create">
-                      Crear nuevo Anuncio
+                      {t('Create new Advert')}
                     </Link>
                   </div>
                 </div>
               )}
 
-              <Link className="navbar-item " to="/">
+              <Link className="navbar-item has-text-grey has-text-weight-bold	" to="/">
                 <span role="img" aria-label="Home" className="bd-emoji">
                   🏠
                 </span>{' '}
                 &nbsp;{t('Home')}
               </Link>
-              <Link className="navbar-item " to="/advert/create">
-                <span role="img" aria-label="Profile" className="bd-emoji">
-                  📦
-                </span>{' '}
-                &nbsp;{t('Create Advert')}
-              </Link>
+              
             </div>
             <div className="navbar-item">
               <div className="buttons">

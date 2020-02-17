@@ -32,7 +32,19 @@ i18n.use(LanguageDetector).init({
         "Update": "Update",
         "Create": "Create",
         "SignIn": "SignIn",
-        "SignOut": "SignOut"
+        "SignOut": "SignOut",
+        "Private": "Private",
+        "My Adverts": "My Adverts",
+        "Create new Advert": "Create new Advert",
+        "Adverts": "Adverts",
+        "Nickname": "Nickname",
+        "Password": "Password",
+        "I do not have an account": "I do not have an account",
+        "Sign up with your email, username and password": "Sign up with your email, username and password",
+        "Remember, the fields can not be empty": "Remember, the fields can not be empty",
+        "I already have an account": "I already have an account",
+        "Sign in with your nickname and password": "Sign in with your nickname and password",
+        "Forgot Password?": "Forgot Password?"
       }
     },
     es: {
@@ -63,7 +75,19 @@ i18n.use(LanguageDetector).init({
         "Update": "Actualizar",
         "Create": "Crear",
         "SignIn": "Iniciar sesión",
-        "SignOut": "Cerrar Sesión"
+        "SignOut": "Cerrar Sesión",
+        "Private": "Privado",
+        "My Adverts": "Mis Anuncios",
+        "Create new Advert": "Crear nuevo Anuncio",
+        "Adverts": "Anuncios",
+        "Nickname": "Nombre de usuario",
+        "Password": "Contraseña",
+        "I do not have an account": "No tengo una cuenta",
+        "Sign up with your email, username and password": "Registrate con tu email, nombre de usaurio y contraseña",
+        "Remember, the fields can not be empty": "Recuerda, los campos no pueden estar vacíos",
+        "I already have an account": "Ya tengo una cuenta",
+        "Sign in with your nickname and password": "Inicia sesión con tu nombre de usuario y contraseña",
+        "Forgot Password?": "¿Olvidaste la contraseña?"
       }
     },
   },

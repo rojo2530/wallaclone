@@ -3,11 +3,12 @@ import Loading from '../Loading/';
 import Navbar from '../Navbar/';
 import Footer from '../Footer/';
 import { FaCoins, FaShoppingCart, FaTruck } from 'react-icons/fa';
-import CaptureError  from '../CaptureError/';
+import CaptureError from '../CaptureError/';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
 class DetailAdvert extends React.Component {
+  
   constructor(props) {
     super(props);
   }
@@ -19,25 +20,34 @@ class DetailAdvert extends React.Component {
   }
 
   render() {
-    const { advert, isFetching, error, t }  = this.props;
+    const { advert, isFetching, error, t } = this.props;
     if (isFetching) {
-      return <Loading text='Fetching detail Advert' /> 
+      return <Loading text="Fetching detail Advert" />;
     }
     if (error) {
-      return <CaptureError message="Error fecthing Advert" error={error.message} />
+      return (
+        <CaptureError message="Error fecthing Advert" error={error.message} />
+      );
     }
     if (!advert) {
       return null;
     }
     return (
       <>
-      <Navbar />
+        <Navbar />
         <section className="section detail-container has-spacing section-gray">
           <div className="container">
             <div className="columns">
               <div className="column">
                 <div className="image is-5by4">
-                  <img src={advert.photo.startsWith('/images') ? `http://localhost:7000${advert.photo}` : `${advert.photo}`} alt="Placeholder" />
+                  <img
+                    src={
+                      advert.photo.startsWith('/images')
+                        ? `http://localhost:7000${advert.photo}`
+                        : `${advert.photo}`
+                    }
+                    alt="Placeholder"
+                  />
                 </div>
               </div>
               <div className="column">
@@ -48,13 +58,22 @@ class DetailAdvert extends React.Component {
                       <p className="is-size-5">€{advert.price}</p>
                       <h6 className="vc">{advert.type}</h6>
                       <div className="has-spacing-bottom">
-                      {advert.tags.map(tag => (
-                          <span key={tag} className="tag has-small-spacing-top is-medium">{tag}</span>
+                        {advert.tags.map(tag => (
+                          <span
+                            key={tag}
+                            className="tag has-small-spacing-top is-medium"
+                          >
+                            {tag}
+                          </span>
                         ))}
                       </div>
-    
-                      <p>{advert.description}</p>                            <p className="buttons">
-                        <a className="button is-link has-icons-left is-medium" href="/">
+                      <p className="is-size-5">Usuario: <strong>{advert.user}</strong></p>
+                      <p>{advert.description}</p>{' '}
+                      <p className="buttons">
+                        <a
+                          className="button is-link has-icons-left is-medium"
+                          href="/"
+                        >
                           <span className="icon">
                             <FaShoppingCart />
                           </span>
@@ -67,11 +86,15 @@ class DetailAdvert extends React.Component {
                           <span className="icon">
                             <FaCoins />
                           </span>
-    
                         </div>
                         <div className="media-content">
-                          <p className="title is-5">{t("Money Back Guarantee")}</p>
-                          <p className="subtitle is-5">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</p>
+                          <p className="title is-5">
+                            {t('Money Back Guarantee')}
+                          </p>
+                          <p className="subtitle is-5">
+                            Vestibulum ante ipsum primis in faucibus orci luctus
+                            et ultrices posuere cubilia Curae
+                          </p>
                         </div>
                       </div>
                       <hr />
@@ -80,14 +103,17 @@ class DetailAdvert extends React.Component {
                           <span className="icon">
                             <FaTruck />
                           </span>
-    
                         </div>
                         <div className="media-content">
-                          <p className="title is-5">{t("International Delivery")}</p>
-                          <p className="subtitle is-5">Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae</p>
+                          <p className="title is-5">
+                            {t('International Delivery')}
+                          </p>
+                          <p className="subtitle is-5">
+                            Vestibulum ante ipsum primis in faucibus orci luctus
+                            et ultrices posuere cubilia Curae
+                          </p>
                         </div>
                       </div>
-    
                     </div>
                   </div>
                 </div>
@@ -97,7 +123,7 @@ class DetailAdvert extends React.Component {
         </section>
         <Footer />
       </>
-    )
+    );
   }
 }
 
@@ -106,6 +132,6 @@ DetailAdvert.propTypes = {
   error: PropTypes.object,
   isFetching: PropTypes.bool,
   loadAdvert: PropTypes.func.isRequired,
-}
+};
 
 export default withTranslation()(DetailAdvert);

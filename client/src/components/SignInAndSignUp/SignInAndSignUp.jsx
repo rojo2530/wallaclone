@@ -8,7 +8,7 @@ import Login from '../Login';
 const SignInAndSignUp = () => (
   <div>
     <Navbar />
-    <div className="sign-in-and-sign-up">
+    <div className="sign-in-and-sign-up columns is-multiline">
       <Register />
       <Login />
     </div>    
