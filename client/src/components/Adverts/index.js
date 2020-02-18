@@ -8,6 +8,7 @@ function mapStateToProps(state) {
     isFetching: state.ui.isFetching,
     error: state.ui.error,
     currentPage: state.currentPage,
+    totalPages: state.totalPages,
   }
 }
 

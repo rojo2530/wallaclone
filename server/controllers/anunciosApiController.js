@@ -34,6 +34,10 @@ const anunciosApiController = () => {
 
         if (typeof price !== 'undefined') filter.price = getPriceFilter(price);
 
+        const countTotal = await Anuncio.count(filter);
+
+        const totalPages = Math.ceil(countTotal / limit); 
+
         const anuncios = await Anuncio.list({
           filter: filter,
           start,
@@ -42,7 +46,7 @@ const anunciosApiController = () => {
           fields,
         });
 
-        res.json({ sucess: true, count: anuncios.length, results: anuncios });
+        res.json({ sucess: true, totalPages , countTotal, count:anuncios.length, results: anuncios });
         return;
       } catch (err) {
         next(err);

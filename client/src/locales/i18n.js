@@ -44,7 +44,8 @@ i18n.use(LanguageDetector).init({
         "Remember, the fields can not be empty": "Remember, the fields can not be empty",
         "I already have an account": "I already have an account",
         "Sign in with your nickname and password": "Sign in with your nickname and password",
-        "Forgot Password?": "Forgot Password?"
+        "Forgot Password?": "Forgot Password?",
+        "Newest": "Newest"
       }
     },
     es: {
@@ -87,7 +88,8 @@ i18n.use(LanguageDetector).init({
         "Remember, the fields can not be empty": "Recuerda, los campos no pueden estar vacíos",
         "I already have an account": "Ya tengo una cuenta",
         "Sign in with your nickname and password": "Inicia sesión con tu nombre de usuario y contraseña",
-        "Forgot Password?": "¿Olvidaste la contraseña?"
+        "Forgot Password?": "¿Olvidaste la contraseña?",
+        "Newest": "Mas recientes"
       }
     },
   },

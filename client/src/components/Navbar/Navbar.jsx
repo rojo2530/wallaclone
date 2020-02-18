@@ -93,13 +93,13 @@ class Navbar extends React.Component {
           >
             <div className="navbar-start">
               {isAuth && (
-                <div class="navbar-item has-dropdown is-hoverable">
-                  <a class="navbar-link has-text-grey has-text-weight-bold">
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <a className="navbar-link has-text-grey has-text-weight-bold">
                     <strong class="has-text-grey">{t('Private')}</strong>
                   </a>
-                  <div class="navbar-dropdown ">
-                    <hr class="navbar-divider" />
-                    <div class="navbar-item">
+                  <div className="navbar-dropdown ">
+                    <hr className="navbar-divider" />
+                    <div className="navbar-item">
                       <div>
                         <p class="is-size-6-desktop">
                           <strong class="has-text-info">Usuario</strong>

@@ -10,6 +10,7 @@ export const initialState = {
   },
   currentAdvert: null,
   currentPage: 1,
+  totalPages: 7
 }
 
 export const user = (state = initialState.user, action) => {
@@ -29,6 +30,15 @@ export const currentPage = (state = initialState.currentPage, action) => {
       return state;
   }
 };
+
+export const totalPages = (state = initialState.totalPages, action) => {
+  switch(action.type){
+    case TYPES.SET_TOTAL_PAGES:
+      return action.totalPages;
+    default: 
+      return state;
+  }
+}
 
 export const filter = (state = initialState.filter, action) => {
   switch(action.type) {

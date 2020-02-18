@@ -16,10 +16,12 @@ import
     SET_CURRENT_PAGE,
     CREATE_USER_REQUEST,
     CREATE_USER_SUCCESS,
-    CREATE_USER_FAILURE
+    CREATE_USER_FAILURE,
+    SET_TOTAL_PAGES
   } from './types';
 
   import { notification } from 'antd';
+import { totalPages } from './reducers';
 
   const openNotificationWarning = (message, description) => {
     notification.open({
@@ -46,6 +48,7 @@ export const fetchAdverts = () => {
     try {
       const data = await getAdverts(filter, currentPage);
       dispatch(fetchAdvertsSuccess(data.results));
+      dispatch(setTotalPages(data.totalPages));
     } catch (error) {
       dispatch(fetchAdvertsFailure(error));
     }
@@ -190,4 +193,9 @@ export const setFilter = filter => ({
 export const setCurrentPage = currentPage => ({
   type: SET_CURRENT_PAGE,
   currentPage,
+});
+
+export const setTotalPages = totalPages => ({
+  type: SET_TOTAL_PAGES,
+  totalPages,
 });
