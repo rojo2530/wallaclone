@@ -9,10 +9,6 @@ import { withTranslation } from 'react-i18next';
 
 class DetailAdvert extends React.Component {
   
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     const { id } = this.props.match.params;
     console.log(this.props);

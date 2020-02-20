@@ -21,7 +21,6 @@ import
   } from './types';
 
   import { notification } from 'antd';
-import { totalPages } from './reducers';
 
   const openNotificationWarning = (message, description) => {
     notification.open({

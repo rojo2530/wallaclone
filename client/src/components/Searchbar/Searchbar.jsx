@@ -13,7 +13,7 @@ function Searchbar ({ onChangeText, handlerSubmit, name, priceMin, priceMax, tag
             <div className="field has-addons">
               <div className="control is-expanded">
                 <input className="input is-dark has-text-centered" placeholder={`${t("Search Advert")}...`}
-                  value={name} name='name' onChange={onChangeText} id="search" type="search" 
+                  value={name} name='name' onChange={onChangeText} type="search" 
                 />
               </div>
             </div>
@@ -40,14 +40,14 @@ function Searchbar ({ onChangeText, handlerSubmit, name, priceMin, priceMax, tag
             <div className="field has-addons ">
               <div className="control is-expanded">
                 <label className="label">{t("Minimal Price")}</label>
-                <input className="input is-dark has-text-centered" id="search" type="number"
+                <input className="input is-dark has-text-centered" type="number"
                 value={priceMin} name='priceMin' onChange={onChangeText} 
                 />
               </div>
               <div className="control is-expanded ">
                 <label className="label">{t("Maximal Price")}</label>
                 <input className="input is-dark has-text-centered is-fullwidth" 
-                value={priceMax} name='priceMax' onChange={onChangeText} id="search" type="number"
+                value={priceMax} name='priceMax' onChange={onChangeText} type="number"
                 />
               </div>
             </div>

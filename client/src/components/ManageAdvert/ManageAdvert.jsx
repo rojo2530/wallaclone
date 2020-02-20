@@ -13,7 +13,6 @@ import {
 import CaptureError from '../CaptureError';
 import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
-import FileUpload from '../FileUpload';
 import api from '../../utils/api';
 
 const { uploadFile } = api();
@@ -152,7 +151,7 @@ class ManageAdvert extends React.Component {
   render() {
     console.log(this.state);
     const { advert, edit } = this.state;
-    const { isFetching, error, t, user } = this.props;
+    const { isFetching, error, t } = this.props;
     console.log(this.state);
 
     if (isFetching) {

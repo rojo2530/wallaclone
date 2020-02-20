@@ -10,24 +10,23 @@ import api from '../../utils/api';
 
 const { resetPassword, updatePassword } = api();
 
-
 const openNotificationWarning = (message, description) => {
   notification.open({
     message,
     description,
     type: 'warning',
-    style: { backgroundColor: 'yellow' }
+    style: { backgroundColor: 'yellow' },
   });
-}
+};
 
 const openNotificationSucess = (message, description) => {
   notification.open({
     message,
     description,
     type: 'success',
-    style: { backgroundColor: 'green' }
+    style: { backgroundColor: 'green' },
   });
-}
+};
 
 class ResetPassword extends React.Component {
   constructor() {
@@ -37,8 +36,8 @@ class ResetPassword extends React.Component {
       error: false,
       isLoading: true,
       showError: false,
-      messageFromServer: ''
-    }
+      messageFromServer: '',
+    };
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -53,8 +52,8 @@ class ResetPassword extends React.Component {
     }
     user.email = this.state.email;
     updatePassword(user)
-      .then(res => console.log(res))
-      .catch(err => console.log(err));
+      .then(res => openNotificationSucess('Update password', 'Update password with success'))
+      .catch(err => openNotificationWarning('Error!!!', err.response.data.message));
   }
 
   componentDidMount() {
@@ -62,72 +61,86 @@ class ResetPassword extends React.Component {
     resetPassword(token)
       .then(res => {
         this.setState({
-          isLoading:false,
-          email: res.email
-        })
+          isLoading: false,
+          email: res.email,
+        });
       })
       .catch(error => {
         this.setState({
           error: true,
-          isLoading: false
-        })
+          isLoading: false,
+        });
       });
-    } 
+  }
 
   render() {
     const { email, error, isLoading, showError } = this.state;
-    
+    const { t } = this.props;
+
     if (error) {
       return (
         <div>
           <Navbar />
           <div className="reset-password">
             <div className="column">
-              <h1 className="avatar has-text-centered section"><span aria-label="logo" role="img" style={{fontSize: '2rem'}}>Not valid link for reset Password</span></h1>
+              <h1 className="avatar has-text-centered section">
+                <span aria-label="logo" role="img" style={{ fontSize: '2rem' }}>
+                  {t('Not valid link for reset Password')}
+                </span>
+              </h1>
             </div>
           </div>
         </div>
-      )
+      );
     }
     if (isLoading) {
       return null;
     }
-    
+
     return (
-      
       <div>
         <Navbar />
         <div className="reset-password">
-        <div className="column">
-          <h1 className="avatar has-text-centered section"><span aria-label="logo" role="img" style={{fontSize: '2rem'}}>Update Password for {this.state.email}</span></h1>
-          <div className="login-form">
-            <Form onSubmit={this.handleSubmit} initialValue={{password: '' }}>
-              <div className="field">
-                <label className="label">Password</label>
-                <div className="control has-icons-left">
-                  <Input name="password" className="input" type="password" placeholder="e.g. Smith" />
-                  <span className="icon is-small is-left"><FaUser /></span>
+          <div className="column">
+            <h1 className="avatar has-text-centered section">
+              <span aria-label="logo" role="img" style={{ fontSize: '2rem' }}>
+                {t("Update Password for")} {this.state.email}
+              </span>
+            </h1>
+            <div className="login-form">
+              <Form
+                onSubmit={this.handleSubmit}
+                initialValue={{ password: '' }}
+              >
+                <div className="field">
+                  <label className="label">{t("Password")}</label>
+                  <div className="control has-icons-left">
+                    <Input
+                      name="password"
+                      className="input"
+                      type="password"
+                      placeholder="e.g. Smith"
+                    />
+                    <span className="icon is-small is-left">
+                      <FaUser />
+                    </span>
+                  </div>
                 </div>
-                <p className="help">The last name is invalid, is too short</p>
-              </div>
-              
 
-              
-            
-              <div className="field">
-                <p className="control">
-                  <button className="button is-dark is-medium is-fullwidth is-disabled">Update Password</button>
-                </p>
-              </div>
-            </Form>
+                <div className="field">
+                  <p className="control">
+                    <button className="button is-dark is-medium is-fullwidth is-disabled">
+                      {t("Update Password")}
+                    </button>
+                  </p>
+                </div>
+              </Form>
+            </div>
           </div>
-        </div> 
-        </div>   
-  </div>
-    )
+        </div>
+      </div>
+    );
   }
-
-
 }
 
-export default ResetPassword;
+export default withTranslation()(ResetPassword);

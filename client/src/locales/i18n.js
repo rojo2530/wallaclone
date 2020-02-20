@@ -45,7 +45,13 @@ i18n.use(LanguageDetector).init({
         "I already have an account": "I already have an account",
         "Sign in with your nickname and password": "Sign in with your nickname and password",
         "Forgot Password?": "Forgot Password?",
-        "Newest": "Newest"
+        "Newest": "Newest",
+        "To reset your password, please provide your Email": "To reset your password, please provide your Email",
+        "Reset Password": "Reset Password",
+        "Send Reset Instructions": "Send Reset Instructions",
+        "Not valid link for reset Password": "Not valid link for reset Password",
+        "Update Password for": "Update Password for",
+        "Update Password": "Update Password"
       }
     },
     es: {
@@ -89,12 +95,19 @@ i18n.use(LanguageDetector).init({
         "I already have an account": "Ya tengo una cuenta",
         "Sign in with your nickname and password": "Inicia sesión con tu nombre de usuario y contraseña",
         "Forgot Password?": "¿Olvidaste la contraseña?",
-        "Newest": "Mas recientes"
+        "Newest": "Mas recientes",
+        "To reset your password, please provide your Email": "Para resetear tu contraseña, por favor escribe tu email",
+        "Reset Password": "Resetea tu contraseña",
+        "Send Reset Instructions": "Enviar instrucciones",
+        "Not valid link for reset Password": "No es un link valido para resetear la contraseña",
+        "Update Password for": "Actualiza la contraseña para",
+        "Update Password": "Actualiza contraseña"
       }
     },
+
   },
   fallbackLng: "en",
-  debug: true,
+  debug: false,
   ns: ["translations"],
   defaultNS: "translations",
   keySeparator: false, 

@@ -21,7 +21,6 @@ class Navbar extends React.Component {
   }
 
   componentDidMount() {
-    console.log('Lenguaje: ', this.props.i18n.language);
     this.setState({
       lang: this.props.i18n.language.split('-')[0],
     });
@@ -62,7 +61,6 @@ class Navbar extends React.Component {
       en: 'us',
       es: 'es',
     };
-    console.log(this.state);
     return (
       <>
         <nav className="navbar is-fixed-top">
@@ -95,33 +93,33 @@ class Navbar extends React.Component {
               {isAuth && (
                 <div className="navbar-item has-dropdown is-hoverable">
                   <a className="navbar-link has-text-grey has-text-weight-bold">
-                    <strong class="has-text-grey">{t('Private')}</strong>
+                    <strong className="has-text-grey">{t('Private')}</strong>
                   </a>
                   <div className="navbar-dropdown ">
                     <hr className="navbar-divider" />
                     <div className="navbar-item">
                       <div>
-                        <p class="is-size-6-desktop">
-                          <strong class="has-text-info">Usuario</strong>
+                        <p className="is-size-6-desktop">
+                          <strong className="has-text-info">Usuario</strong>
                         </p>
                       </div>
                     </div>
 
-                    <hr class="navbar-divider" />
-                    <div class="navbar-item">
+                    <hr className="navbar-divider" />
+                    <div className="navbar-item">
                       <div>
-                        <p class="is-size-6-desktop">
-                          <strong class="has-text-info">{t('Adverts')}</strong>
+                        <p className="is-size-6-desktop">
+                          <strong className="has-text-info">{t('Adverts')}</strong>
                         </p>
                       </div>
                     </div>
                     <Link
-                      class="navbar-item is-active"
+                      className="navbar-item is-active"
                       to={`/private/myadverts`}
                     >
                     {t('My Adverts')}
                     </Link>
-                    <Link class="navbar-item is-active" to="/advert/create">
+                    <Link className="navbar-item is-active" to="/advert/create">
                       {t('Create new Advert')}
                     </Link>
                   </div>

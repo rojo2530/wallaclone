@@ -53,7 +53,6 @@ const api = () => {
 		getAdverts: (filter, page = 1) => {
 			//No me deja el eslint y lo tengo que poner con let en vez de const
 			// const skip = (page - 1) * LIMIT;
-			console.log('Desde api oldest', filter.oldest)
 			const sort = filter.oldest ? 'createdAt' : '-createdAt';
 			let endPoint = buildEndPoint(filter);
 			if (page !== 0) {
