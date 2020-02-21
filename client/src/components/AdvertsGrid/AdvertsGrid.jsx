@@ -66,7 +66,9 @@ function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
                     <Moment format="DD/MM/YYYY HH:mm">
                       {advert.createdAt}
                     </Moment>
-                    <Link to={`/adverts/${advert.user}`}>{advert.user}</Link>
+                    <div>
+                      <Link to={`/adverts/${advert.user}`}>{advert.user}</Link>
+                    </div>
                     <TwitterShareButton
                       url={`/advert/detail/${advert.name.replace(
                         /\s+/g,
