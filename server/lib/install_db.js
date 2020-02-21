@@ -35,6 +35,14 @@ async function initUsuarios() {
         password: await Usuario.hashPassword('1234'),
         resetPasswordToken: '',
         resetPasswordExpires: ''
-      }
+      },
+      {
+        email: 'pikota@gmail.com',
+        nickname: 'pikota',
+        password: await Usuario.hashPassword('1234'),
+        resetPasswordToken: '',
+        resetPasswordExpires: ''
+      },
+
     ])
   }
