@@ -33,7 +33,7 @@ function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
                   <img
                     src={
                       advert.photo.startsWith('/images')
-                        ? `http://localhost:7000${advert.photo}`
+                        ? `${advert.photo}`
                         : `${advert.photo}`
                     }
                     alt="Placeholder"
@@ -68,7 +68,7 @@ function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
                     </Moment>
                     <Link to={`/adverts/${advert.user}`}>{advert.user}</Link>
                     <TwitterShareButton
-                      url={`http://localhost:3000/advert/detail/${advert.name.replace(
+                      url={`/advert/detail/${advert.name.replace(
                         /\s+/g,
                         '-',
                       )}/${advert._id}`}

@@ -39,7 +39,7 @@ class DetailAdvert extends React.Component {
                   <img
                     src={
                       advert.photo.startsWith('/images')
-                        ? `http://localhost:7000${advert.photo}`
+                        ? `${advert.photo}`
                         : `${advert.photo}`
                     }
                     alt="Placeholder"
