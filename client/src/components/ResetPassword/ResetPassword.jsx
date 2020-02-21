@@ -29,8 +29,8 @@ const openNotificationSucess = (message, description) => {
 };
 
 class ResetPassword extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       email: '',
       error: false,
@@ -50,7 +50,9 @@ class ResetPassword extends React.Component {
       openNotificationWarning('Invalid Form', `The Email is not correct`);
       return false;
     }
+    const { token } = this.props.match.params;
     user.email = this.state.email;
+    user.resetPasswordToken = token;
     updatePassword(user)
       .then(res => openNotificationSucess('Update password', 'Update password with success'))
       .catch(err => openNotificationWarning('Error!!!', err.response.data.message));

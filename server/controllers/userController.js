@@ -55,12 +55,16 @@ const userController = () => {
 
     },
     updatePassword: async (req, res, next) => {
-      const { email, password  } = req.body;
-      console.log(email, password);
-      const user = await Usuario.findOne({ email });
-
+      const { email, password, resetPasswordToken } = req.body;
+      //const user = await Usuario.findOne({ email });
+      await Usuario.findOne({
+        resetPasswordToken: resetPasswordToken,
+        resetPasswordExpires: {
+          $gt: Date.now(),
+        }
+      });
       if (user === null) {
-        return res.status(404).json('user not exists in db');
+        return res.status(404).json('user not exists in db or token reset is not valid');
       }
       if(!password) {
         return res.status(404).json('password can not be empty');

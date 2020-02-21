@@ -45,7 +45,7 @@ router.get('/:id', detail);
 
 router.put('/:id', require('../../lib/jwtAuth'), update);
 
-router.delete('/:id', deleteOne);
+router.delete('/:id', require('../../lib/jwtAuth'), deleteOne);
 
 router.post('/uploadfile', require('../../lib/jwtAuth'), upload.single('photo'), uploadFile)
 
