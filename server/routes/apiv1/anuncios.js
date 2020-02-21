@@ -43,13 +43,13 @@ router.get('/', index);
 
 router.get('/:id', detail);
 
-router.put('/:id', require('./lib/jwtAuth'), update);
+router.put('/:id', require('../../lib/jwtAuth'), update);
 
 router.delete('/:id', deleteOne);
 
-router.post('/uploadfile', require('./lib/jwtAuth'), upload.single('photo'), uploadFile)
+router.post('/uploadfile', require('../../lib/jwtAuth'), upload.single('photo'), uploadFile)
 
-router.post('/', require('./lib/jwtAuth'), post);
+router.post('/', require('../../lib/jwtAuth'), post);
 
 
 
