@@ -57,7 +57,7 @@ const userController = () => {
     updatePassword: async (req, res, next) => {
       const { email, password, resetPasswordToken } = req.body;
       //const user = await Usuario.findOne({ email });
-      await Usuario.findOne({
+      const user  = await Usuario.findOne({
         resetPasswordToken: resetPasswordToken,
         resetPasswordExpires: {
           $gt: Date.now(),
