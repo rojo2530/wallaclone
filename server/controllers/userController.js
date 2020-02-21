@@ -26,7 +26,7 @@ const userController = () => {
           const result = await user.sendEmail('admin@example.com', 'Link to Reset Password',  
           'You are receiving this because you (or someone else) have requested the reset of the password for your account.<br><br>'
           + 'Please click on the following link, or paste this into your browser to complete the process within one hour of receiving it:<br><br>'
-          + `http://localhost:3000/reset/${token}<br><br>`
+          + `https://wallaclone.site/reset/${token}<br><br>`
           + 'If you did not request this, please ignore this email and your password will remain unchanged.<br>');
           console.log(result);
           res.status(200).send('ok recovery mail sent');
