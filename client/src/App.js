@@ -1,10 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import Adverts from './components/Adverts/';
-// import Register from './components/Register/';
 import ManageAdvert from './components/ManageAdvert/';
-import DetailAdvert from './components/DetailAdvert/'
+import DetailAdvert from './components/DetailAdvert/';
 import ErrorBoundary from './components/ErrorBoundary/';
 import Error404 from './components/Error404/';
 import PrivateRoute from './components/PrivateRoute/';
@@ -16,28 +15,44 @@ import MyAdverts from './components/MyAdverts';
 import FileUpload from './components/FileUpload';
 
 export default function App({ store, ...props }) {
-	return (
-		<ErrorBoundary >
-			<Provider store={store}>	
-				<Router>
-					<Switch>
-						<Route exact path='/' component={Adverts} />
-						<Route exact path='/prueba' component={FileUpload} />
-
+  return (
+    <ErrorBoundary>
+      <Provider store={store}>
+        <Router>
+          <Switch>
+            <Route exact path="/" component={Adverts} />
+            <Route exact path="/prueba" component={FileUpload} />
 						<Route exact path="/reset/:token" component={ResetPassword} />
-						<Route exact path='/signin' component={SignInAndSignUp} />
-						<Route exact path='/forgot-password' component={ForgotPassword} />
-						<Route exact path='/advert/detail/:nombre/:id' component={DetailAdvert} />
-						<Route exact path='/adverts/:user' component={AdvertsByUser} />
-						<PrivateRoute key='add-advert' exact path='/advert/create' component={ManageAdvert} />
-						<PrivateRoute key='edit-advert' exact path='/advert/edit/:id' component={ManageAdvert} />
-						<PrivateRoute key='myadverts' exact path='/private/myadverts' component={MyAdverts} />
-						<Route component={Error404}/>
-					</Switch>
-				</Router>
-			</Provider>
-		</ErrorBoundary>  
-	);
+            <Route exact path="/signin" component={SignInAndSignUp} />
+            <Route exact path="/forgot-password" component={ForgotPassword} />
+            <Route
+              exact
+              path="/advert/detail/:nombre/:id"
+              component={DetailAdvert}
+            />
+            <Route exact path="/adverts/:user" component={AdvertsByUser} />
+            <PrivateRoute
+              key="add-advert"
+              exact
+              path="/advert/create"
+              component={ManageAdvert}
+            />
+            <PrivateRoute
+              key="edit-advert"
+              exact
+              path="/advert/edit/:id"
+              component={ManageAdvert}
+            />
+            <PrivateRoute
+              key="myadverts"
+              exact
+              path="/private/myadverts"
+              component={MyAdverts}
+            />
+            <Route component={Error404} />
+          </Switch>
+        </Router>
+      </Provider>
+    </ErrorBoundary>
+  );
 }
-
-

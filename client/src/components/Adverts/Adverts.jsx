@@ -96,7 +96,7 @@ class Adverts extends React.Component {
       currentPage,
       myadverts,
       totalPages,
-      t
+      t,
     } = this.props;
 
     if (error) {
