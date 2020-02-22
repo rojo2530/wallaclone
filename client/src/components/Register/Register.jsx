@@ -44,16 +44,7 @@ class Register extends React.Component {
       );
       return false;
     }
-    console.log(user);
-    // registerUser(user)
-    //   .then(res => {
-    //     openNotificationSucess('User created with sucess',`the user ${res.email} was created correctly`);
-    //   })
-    //   .catch(err => {
-    //     console.log(err.response.data.error);
-    //     openNotificationWarning('Invalid Nickname or Email', err.response.data.error);
-    //   });
-    //le ponemos los campos del token para recuperar la password
+    
     this.props.newUser(user);
   }
 

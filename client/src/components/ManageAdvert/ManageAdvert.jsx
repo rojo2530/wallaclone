@@ -51,7 +51,6 @@ class ManageAdvert extends React.Component {
 
   async onSubmit(event) {
     event.preventDefault();
-    console.log(this.isInvalidForm());
 
     if (!this.isInvalidForm()) {
       if (this.state.edit) {
@@ -149,10 +148,8 @@ class ManageAdvert extends React.Component {
   }
 
   render() {
-    console.log(this.state);
     const { advert, edit } = this.state;
     const { isFetching, error, t } = this.props;
-    console.log(this.state);
 
     if (isFetching) {
       return null;

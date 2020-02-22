@@ -35,7 +35,6 @@ const loginController = () => {
           _id: usuario._id
         };
 
-        console.log(req.session);
         res.redirect('/');
       } catch (err) {
         next(err);
@@ -68,7 +67,6 @@ const loginController = () => {
           expiresIn: '2D',
         });
         // res.json({ success: true, token });
-        console.log('Creamos la cookie');
         res.header('Content-Type', 'application/json;charset=UTF-8')
         res.header('Access-Control-Allow-Credentials', true)
         res.header(

@@ -28,7 +28,6 @@ const userController = () => {
           + 'Please click on the following link, or paste this into your browser to complete the process within one hour of receiving it:<br><br>'
           + `https://wallaclone.site/reset/${token}<br><br>`
           + 'If you did not request this, please ignore this email and your password will remain unchanged.<br>');
-          console.log(result);
           res.status(200).send('ok recovery mail sent');
 
       } catch (error) {
@@ -36,7 +35,6 @@ const userController = () => {
       }
     },
     reset: async (req, res, next) => {
-      console.log(req.query.resetPasswordToken);
       const user = await Usuario.findOne({ 
         resetPasswordToken: req.query.resetPasswordToken,
         resetPasswordExpires: {
@@ -58,7 +56,6 @@ const userController = () => {
     updatePassword: async (req, res, next) => {
       const { email, password, resetPasswordToken } = req.body;
       //const user = await Usuario.findOne({ email });
-      console.log(email, resetPasswordToken);
       const user = await Usuario.findOne({
         resetPasswordToken: resetPasswordToken,
         resetPasswordExpires: {

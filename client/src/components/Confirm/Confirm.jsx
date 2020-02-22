@@ -16,7 +16,6 @@ class Confirm extends React.Component {
         {
           label: 'Yes',
           onClick: () => {
-            console.log('Super props', this.props.id)
             deleteOne(this.props.id)
               .then(res => this.props.loadAdverts())
               .catch(err => console.log(err));  
@@ -31,7 +30,6 @@ class Confirm extends React.Component {
   };
  
   render() {
-    console.log('PROPS:', this.props);
     return (
         <button onClick={this.submit}>Delete</button>
     );

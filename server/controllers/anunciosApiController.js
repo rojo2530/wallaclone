@@ -83,7 +83,6 @@ const anunciosApiController = () => {
           error.status = 400;
           return next(error);
         }
-        console.log(req.file);
         res.json({ sucess: true, result: '/images/anuncios/' + file.filename });
         // createTask({
         //   texto: 'Create thumbnail for  ' + req.file.originalname + ' ' + Date.now(),

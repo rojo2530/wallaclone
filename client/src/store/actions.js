@@ -59,7 +59,6 @@ export const fecthSingleAdvert = id => {
     const { currentAdvert } = getState();
     //Si el anuncio ya está en redux, no despachamos nada
     if (!currentAdvert || id !== currentAdvert._id) {
-      console.log('Hace petición a la api');
       dispatch(fetchSingleAdvertRequest(id));
       try {
         const advert = await getAdvertDetail(id);
