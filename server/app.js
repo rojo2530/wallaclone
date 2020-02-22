@@ -29,11 +29,6 @@ app.use((req, res, next) => {
 });
 
 /**
- * Setup de i18n
- */
-const i18n = require('./lib/i18nConfigure')();
-app.use(i18n.init);
-/**
  * Conexion a la base de datos
  */
 const mongooseConnection = require('./lib/connectMongoose');
@@ -61,39 +56,6 @@ app.use('/apiv1/tags', require('./routes/apiv1/tags'));
 app.use('/apiv1/anuncios', require('./routes/apiv1/anuncios'));
 //Cualquier llamada a la api, excepto el login tiene que tener un token valido
 app.use('/apiv1/*', require('./lib/jwtAuth'));
-
-/**
- * Inicializamos y cargamos la sesión del usuario que hacce la petición
- */
-app.use(session({
-  name: 'nodeapi-session',
-  secret: 'asdasdsad12323asdasdasdfgfgh',
-  resave: false,
-  saveUninitialized: true,
-  cookie: {
-    secure: true, //solo mandar por https
-    maxAge: 1000 * 60 * 60 * 24 * 2// caducar a los 2 días de inactividad
-  },
-  store: new MongoStore({
-    // le pasamos como conectarse a la base de datos
-    mongooseConnection
-  })
-}));
-
-// middleware para tener acceso a la sesión en las vistas
-app.use((req, res ,next) => {
-  res.locals.session = req.session;
-  next();
-});
-
- /**
-  * Rutas para las vistas
-  */
-
-app.use('/',      require('./routes/index'));
-app.use('/change-locale', require('./routes/change-locale'));
-app.use('/login', require('./routes/login'));
-app.use('/logout', require('./routes/lougout'));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
