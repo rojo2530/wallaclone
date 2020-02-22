@@ -9,11 +9,7 @@ function AdvertsByuser(props) {
       <Navbar />
       <Adverts nickname={props.match.params.user} />
     </>
-  )
+  );
 }
-    
-export default AdvertsByuser;
 
-Adverts.propTypes = {
-  nickname: PropTypes.string.isRequired
-};
+export default AdvertsByuser;

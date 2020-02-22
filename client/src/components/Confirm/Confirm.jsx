@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import { confirmAlert } from 'react-confirm-alert'; // Import
 import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
 import api from '../../utils/api';
-
+import PropTypes from 'prop-types';
 
 
 const { deleteOne } = api();
@@ -18,22 +18,24 @@ class Confirm extends React.Component {
           onClick: () => {
             deleteOne(this.props.id)
               .then(res => this.props.loadAdverts())
-              .catch(err => console.log(err));  
-          }
+              .catch(err => console.log(err));
+          },
         },
 
         {
           label: 'No',
-        }
-      ]
+        },
+      ],
     });
   };
- 
+
   render() {
-    return (
-        <button onClick={this.submit}>Delete</button>
-    );
+    return <button onClick={this.submit}>Delete</button>;
   }
 }
+
+Confirm.propTypes = {
+  id: PropTypes.string.isRequired,
+};
 
 export default Confirm;

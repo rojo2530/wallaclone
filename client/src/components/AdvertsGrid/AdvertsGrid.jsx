@@ -18,7 +18,7 @@ const styles = {
   },
 };
 
-function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
+function AdvertsGrid({ adverts, t, myadverts }) {
   return (
     <>
       {adverts.length === 0 ? (
@@ -30,14 +30,7 @@ function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
               <div className="card has-equal-height">
                 <div className="image has-spacing image is-3by2">
                   hola
-                  <img
-                    src={
-                      advert.photo.startsWith('/images')
-                        ? `${advert.photo}`
-                        : `${advert.photo}`
-                    }
-                    alt="Placeholder"
-                  />
+                  <img src={advert.photo} alt="Placeholder" />
                 </div>
                 <div className="card-content has-equal-height">
                   <div className="content">
@@ -112,6 +105,8 @@ function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
 
 AdvertsGrid.propTypes = {
   adverts: PropTypes.array.isRequired,
+  t: PropTypes.func.isRequired,
+  myadverts: PropTypes.bool,
 };
 
 export default withTranslation()(AdvertsGrid);

@@ -160,7 +160,8 @@ Adverts.propTypes = {
   changePage: PropTypes.func.isRequired,
   setFilter: PropTypes.func.isRequired,
   totalPages: PropTypes.number.isRequired,
-  t: PropTypes.func.isRequired
+  t: PropTypes.func.isRequired,
+  nickname: PropTypes.string
 };
 
 export default withTranslation()(Adverts);
