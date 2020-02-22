@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import Form from '../Form';
 import Input from '../Input';
 import Navbar from '../Navbar';
-import { FaUser, FaSearch } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import './reset-password.css';
 import { notification } from 'antd';
 import api from '../../utils/api';
@@ -76,7 +76,7 @@ class ResetPassword extends React.Component {
   }
 
   render() {
-    const { email, error, isLoading, showError } = this.state;
+    const { error, isLoading } = this.state;
     const { t } = this.props;
 
     if (error) {

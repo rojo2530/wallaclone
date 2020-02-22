@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import { withTranslation } from 'react-i18next';
 
 class DetailAdvert extends React.Component {
-  
   componentDidMount() {
     const { id } = this.props.match.params;
     this.props.loadAdvert(id);
@@ -62,7 +61,9 @@ class DetailAdvert extends React.Component {
                           </span>
                         ))}
                       </div>
-                      <p className="is-size-5">Usuario: <strong>{advert.user}</strong></p>
+                      <p className="is-size-5">
+                        Usuario: <strong>{advert.user}</strong>
+                      </p>
                       <p>{advert.description}</p>{' '}
                       <p className="buttons">
                         <a

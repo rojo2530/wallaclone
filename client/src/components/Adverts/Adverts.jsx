@@ -64,7 +64,7 @@ class Adverts extends React.Component {
       prevState => ({
         filter: {
           ...this.state.filter,
-          ['oldest']: !prevState.filter.oldest,
+          'oldest': !prevState.filter.oldest,
         },
       }),
       () => {

@@ -1,13 +1,13 @@
 import React from 'react';
 import Form from '../Form';
 import Input from '../Input';
-import { FaUser, FaTag } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { notification } from 'antd';
 import api from '../../utils/api';
 import { withRouter, Link } from 'react-router-dom';
 import { withTranslation } from 'react-i18next';
 
-const { login, checkToken } = api();
+const { login } = api();
 
 const openNotificationWarning = (message, description) => {
   notification.open({

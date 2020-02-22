@@ -56,7 +56,7 @@ class Navbar extends React.Component {
 
   render() {
     const { activeBurguer, lang } = this.state;
-    const { t, i18n, isAuth, user } = this.props;
+    const { t, isAuth } = this.props;
     const languagesFlag = {
       en: 'us',
       es: 'es',

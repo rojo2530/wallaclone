@@ -1,12 +1,9 @@
 import React from 'react';
 import Form from '../Form';
 import Input from '../Input';
-import { FaUser, FaTag } from 'react-icons/fa';
+import { FaUser } from 'react-icons/fa';
 import { notification } from 'antd';
-import api from '../../utils/api';
 import { withTranslation } from 'react-i18next';
-
-const { registerUser } = api();
 
 const openNotificationWarning = (message, description) => {
   notification.open({
@@ -14,15 +11,6 @@ const openNotificationWarning = (message, description) => {
     description,
     type: 'warning',
     style: { backgroundColor: 'yellow' },
-  });
-};
-
-const openNotificationSucess = (message, description) => {
-  notification.open({
-    message,
-    description,
-    type: 'success',
-    style: { backgroundColor: 'green' },
   });
 };
 
@@ -44,7 +32,7 @@ class Register extends React.Component {
       );
       return false;
     }
-    
+
     this.props.newUser(user);
   }
 
@@ -54,10 +42,10 @@ class Register extends React.Component {
       <div className="column is-6 ">
         <h1 className="avatar has-text-centered section">
           <span aria-label="logo" role="img" style={{ fontSize: '2rem' }}>
-            {t("I do not have an account")}
+            {t('I do not have an account')}
           </span>
         </h1>
-        <span>{t("Sign up with your email, username and password")}</span>
+        <span>{t('Sign up with your email, username and password')}</span>
         <div className="login-form">
           <Form
             onSubmit={this.handleSubmit}
@@ -79,7 +67,7 @@ class Register extends React.Component {
             </div>
 
             <div className="field">
-              <label className="label">{t("Nickname")}</label>
+              <label className="label">{t('Nickname')}</label>
               <div className="control has-icons-left">
                 <Input
                   name="nickname"
@@ -94,7 +82,7 @@ class Register extends React.Component {
             </div>
 
             <div className="field">
-              <label className="label">{t("Password")}</label>
+              <label className="label">{t('Password')}</label>
               <div className="control has-icons-left">
                 <Input
                   name="password"
@@ -111,7 +99,7 @@ class Register extends React.Component {
             <div className="field">
               <p className="control">
                 <button className="button is-dark is-medium is-fullwidth is-disabled">
-                  {t("Create")}
+                  {t('Create')}
                 </button>
               </p>
             </div>
@@ -120,7 +108,7 @@ class Register extends React.Component {
         <hr />
         <div className="forgot-password">
           <p className="has-text-centered">
-            {t("Remember, the fields can not be empty")}
+            {t('Remember, the fields can not be empty')}
           </p>
         </div>
       </div>
