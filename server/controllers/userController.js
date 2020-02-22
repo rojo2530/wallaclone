@@ -21,7 +21,7 @@ const userController = () => {
         const token = crypto.randomBytes(20).toString('hex');
         //Actualizamos el ususario con el token
         user.resetPasswordToken = token;
-        user.resetPasswordExpires = Date.now() + 3600000;
+        user.resetPasswordExpires = Date.now() + 7200000;
         await user.save();
           const result = await user.sendEmail('admin@example.com', 'Link to Reset Password',  
           'You are receiving this because you (or someone else) have requested the reset of the password for your account.<br><br>'
