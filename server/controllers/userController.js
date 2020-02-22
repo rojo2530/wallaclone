@@ -36,6 +36,7 @@ const userController = () => {
       }
     },
     reset: async (req, res, next) => {
+      console.log(req.query.resetPasswordToken);
       const user = await Usuario.findOne({ 
         resetPasswordToken: req.query.resetPasswordToken,
         resetPasswordExpires: {
