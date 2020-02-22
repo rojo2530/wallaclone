@@ -70,7 +70,7 @@ function AdvertsGrid({ adverts, t, myadverts, onDelete }) {
                       <Link to={`/adverts/${advert.user}`}>{advert.user}</Link>
                     </div>
                     <TwitterShareButton
-                      url={`/advert/detail/${advert.name.replace(
+                      url={`https://wallaclone.site/advert/detail/${advert.name.replace(
                         /\s+/g,
                         '-',
                       )}/${advert._id}`}
